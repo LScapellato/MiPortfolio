@@ -1,0 +1,108 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Crear Usuario</span>
+    <div class="spacer"></div>
+    <button mat-raised-button color="primary" routerLink="/dashboard/usuarios">
+      Volver
+    </button>
+  </mat-toolbar>
+  <mat-card style="margin-top: 8px">
+    <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+      <mat-grid-list cols="3" rows="3" rowHeight="4:1">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              matInput
+              placeholder="NOMBRE"
+              formControlName="nombre"
+              autocomplete="off"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              matInput
+              placeholder="APELLIDO"
+              formControlName="apellido"
+              autocomplete="off"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              matInput
+              autocomplete="off"
+              placeholder="EDAD"
+              formControlName="edad"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              matInput
+              autocomplete="off"
+              placeholder="DOMICILIO"
+              formControlName="domicilio"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              matInput
+              autocomplete="off"
+              placeholder="eMail"
+              formControlName="mail"
+              [formControl]="mail"
+            />
+            <mat-error *ngIf="mail.invalid">{{ getErrorMessage() }}</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              type="date"
+              matInput
+              autocomplete="off"
+              placeholder="Fecha Nacimiento"
+              formControlName="fecha_nacimiento"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input
+              readonly
+              type="text"
+              matInput
+              autocomplete="off"
+              placeholder="Tu edad es"
+              formControlName="edad"
+              [value]="calculoEdad()"
+            />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="3" [rowspan]="1">
+          <button
+            type="submit"
+            [disabled]="form.invalid"
+            mat-raised-button
+            color="primary"
+          >
+            Registrar
+          </button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card>
+</div>

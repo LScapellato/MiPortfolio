@@ -1,0 +1,85 @@
+<h1 class="ancho" mat-dialog-title>Crear Usuario</h1>
+<form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+<mat-dialog-content [formGroup]="form" (ngSubmit)="agregarUsuario()">
+  <mat-form-field class="ancho">
+    <input
+      matInput
+      placeholder="NOMBRE"
+      formControlName="nombre"
+      autocomplete="off"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      matInput
+      placeholder="APELLIDO"
+      formControlName="apellido"
+      autocomplete="off"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      matInput
+      autocomplete="off"
+      placeholder="EDAD"
+      formControlName="edad"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      matInput
+      autocomplete="off"
+      placeholder="DOMICILIO"
+      formControlName="domicilio"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      matInput
+      autocomplete="off"
+      placeholder="eMail"
+      formControlName="mail"
+      [formControl]="mail"
+    />
+    <mat-error *ngIf="mail.invalid">{{ getErrorMessage() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      type="date"
+      matInput
+      autocomplete="off"
+      placeholder="Fecha Nacimiento"
+      formControlName="fecha_nacimiento"
+    />
+  </mat-form-field>
+
+  <mat-form-field class="ancho">
+    <input
+      readonly
+      type="text"
+      matInput
+      autocomplete="off"
+      placeholder="Tu edad es"
+      formControlName="edad"
+      [value]="calculoEdad()"
+    />
+  </mat-form-field>
+</mat-dialog-content>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button
+    type="submit"
+    [disabled]="form.invalid"
+    mat-raised-button
+    color="primary"
+  >
+    Registrar
+  </button>
+</div>
+</form>

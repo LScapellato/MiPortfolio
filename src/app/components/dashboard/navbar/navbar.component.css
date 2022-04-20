@@ -1,0 +1,11 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.textabajo {
+  font-size: 0.80em;
+  vertical-align: text-bottom;
+  margin-left:10px;
+  text-decoration: none;
+}
+

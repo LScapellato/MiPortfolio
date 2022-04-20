@@ -1,0 +1,126 @@
+import { Component, OnInit, ViewChild, EventEmitter, Output} from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
+import { ExperienciaService } from 'src/app/services/experiencia.service';
+import { DialogoComponent } from '../inicio/dialogo/dialogo.component';
+import { CrearExperienciaComponent } from './crear-experiencia/crear-experiencia.component';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Experiencia } from 'src/app/interfaces/experiencia';
+import { Router } from '@angular/router';
+
+
+
+@Component({
+  selector: 'app-experiencia',
+  templateUrl: './experiencia.component.html',
+  styleUrls: ['./experiencia.component.css'],
+  
+})
+
+
+export class ExperienciaComponent implements OnInit {
+  
+ 
+  @Output() idActual?: number
+  
+  
+  @ViewChild(CrearExperienciaComponent) crear?: CrearExperienciaComponent;
+
+  // [x: string]: any;
+  listExperiencia: any;
+  private _experiencia: any;
+  public get experiencia(): any {
+    return this._experiencia;
+  }
+  public set experiencia(value: any) {
+    this._experiencia = value;
+  }
+  constructor(
+    private _experienciaService: ExperienciaService,
+    public dialog: MatDialog,
+    public _snackBar: MatSnackBar,
+    private router: Router,
+    
+  ) {}
+
+  ngOnInit(): void {
+    this.cargarExperiencia();
+  }
+  cargarExperiencia() {
+    this._experienciaService.getExperiencia().subscribe((data) => {
+      this.listExperiencia = data;
+
+      
+    });
+  }
+  openCrearExperiencia() {
+    //Pasamos nuestro componente del contenido que queremos pasar al modal
+    const dialogRef = this.dialog.open(CrearExperienciaComponent);
+
+    // dialogRef.afterClosed().subscribe((result) => {
+    //   console.log(`Dialog result: ${result}`);
+    // });
+  }
+
+  borrarExperiencia(id:number){
+    this._experienciaService.deleteExperiencia(id).subscribe((data) => {
+      
+
+      this._snackBar.open(
+        'Se ha eliminado esta Experiencia',
+        'Experiencia Eliminada',
+        {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
+        this.cargarExperiencia();
+    }, 
+  )};
+
+  detalleExperiencia(id:number){
+   console.log('Trae id?' + id)
+   
+     this.idActual = id;
+     
+     console.log(id)
+     
+     
+     this.router.navigate(['/dashboard/crear-experiencia']) }
+   
+     
+   openDialogEditar(id:number){
+    const dialogConfig = new MatDialogConfig();
+    this._experienciaService.getDetalle(id).subscribe((data) => { 
+      this.experiencia = data;
+    
+    dialogConfig.data={data}
+    this.idActual = id;
+      console.log(data)
+   const dialog= this.dialog.open(CrearExperienciaComponent, dialogConfig);
+    // dialog.afterOpened.apply(this.crear?.cargaExp(id))
+    
+  });
+    
+   }
+  }
+   
+   
+
+
+
+    
+     
+    
+   
+    
+    
+
+
+    
+  
+
+
+  
+

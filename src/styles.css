@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+  padding-top: 6em;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 5px
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.derecha {
+
+  align-items: right;
+}
+
+.buttomright {
+  position: float right;
+  bottom: 8px;
+  right:0px;
+
+}
+
+.imagenProfile {
+
+border-radius: 50%;
+width: 152px;
+height: 152px;
+margin-top: -90px;
+margin-left: 15px
+
+
+}
+
+.fija {
+  position: fixed;
+  top: 0;
+  
+  }

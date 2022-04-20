@@ -1,0 +1,22 @@
+table {
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 80px;
+    position: relative;
+
+  }
+
+.th  {
+width: 20%;
+
+
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  width: 100%;
+}

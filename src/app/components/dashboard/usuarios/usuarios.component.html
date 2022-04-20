@@ -1,0 +1,83 @@
+<div class="container">
+  <mat-toolbar>
+    <span>Usuarios</span>
+    <div class="spacer"></div>
+    <button mat-raised-button color="primary" routerLink="/dashboard/crear-usuario">Agregar</button>
+    <button mat-button (click)="openDialog()">Dialogo</button><button mat-button >Editar</button>
+  </mat-toolbar>
+  
+  <mat-form-field appearance="standard">
+    <mat-label
+      ><span class="material-icons"> filter_alt </span>Filtro</mat-label
+    >
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ingrese texto a buscar"
+      #input
+      autocomplete="off"
+    />
+  </mat-form-field>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="listUsuarios" matSort >
+      <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- usuario Column -->
+      <ng-container matColumnDef="mail">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>mail</th>
+     
+        <td mat-cell *matCellDef="let element">{{ element.mail }}</td>
+      </ng-container>
+
+      <!-- nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+      </ng-container>
+
+      <!-- apellido Column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido</th>
+        <td mat-cell *matCellDef="let element">{{ element.apellido }}</td>
+      </ng-container>
+
+      <!-- Edad Column -->
+      <ng-container matColumnDef="edad">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Edad</th>
+        <td mat-cell *matCellDef="let element">{{ element.edad }}</td>
+      </ng-container>
+
+      <!-- Edad Column -->
+      <ng-container matColumnDef="telefono">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Telefono</th>
+        <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+       <!-- agregamos un indice del array para simular el index de la bd para el ejemplo  -->
+        <td mat-cell  style="text-align: right">
+          <a class="pointer" style="color: green" matTooltip="Buscar">
+            <mat-icon>search</mat-icon>
+          </a>
+          <a class="pointer" style="color: blue" matTooltip="Editar">
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a class="pointer"  style="color: red" matTooltip="Borrar">
+            <mat-icon>delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    
+  </div>
+</div>
+
+
+    
+  
