@@ -5,12 +5,12 @@
   
  
   <div mat-dialog-content  >
-    <div
+    <div class="example-form container"
  
     >
    
-      <form [formGroup]="form" (ngSubmit)="agregarExperiencia()">
-        <div class="form-row" Style="inline-size: auto;">
+      <form role="form"[formGroup]="form" (ngSubmit)="agregarExperiencia()">
+        <div class="form-row" >
           <div class="form-group col-md-18">
             <label for="nombre_empresa">Empresa</label>
             <input
@@ -86,15 +86,16 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Agregar</button>
+        <button Style="margin-left: 10px" type="button" class="btn btn-success"(click)="editarExperiencia()">Success</button>
+        
       </form>
-     
       
-      <button  class="btn btn-secondary">Editar</button>
-      <div  ></div>
+      
+      
    
-    <div mat-dialog-actions>
+    <!-- <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Close</button>
-    </div>
+    </div> -->
   </div>
   
   

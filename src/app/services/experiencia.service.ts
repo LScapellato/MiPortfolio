@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { Experiencia } from '../interfaces/experiencia';
 
@@ -23,8 +24,10 @@ export class ExperienciaService {
     return this.http.post(this.API_SERVER + 'crear',experiencia);
   }
 
-  public updateExperiencia(id: number, experiencia: Experiencia): Observable<any> {
+  public updateExperiencia(id: number, experiencia: string): Observable<any> {
+    console.log(this.API_SERVER + 'editar/'+ id, experiencia)
     return this.http.put(this.API_SERVER + 'editar/'+ id, experiencia);
+   
   }
 
   public deleteExperiencia(id: number): Observable<any> {

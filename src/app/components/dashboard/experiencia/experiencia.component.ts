@@ -87,23 +87,23 @@ export class ExperienciaComponent implements OnInit {
      console.log(id)
      
      
-     this.router.navigate(['/dashboard/crear-experiencia']) }
+     this.router.navigate(['/dashboard/crear-experiencia/'+id]) }
    
      
-   openDialogEditar(id:number){
-    const dialogConfig = new MatDialogConfig();
-    this._experienciaService.getDetalle(id).subscribe((data) => { 
-      this.experiencia = data;
+  //  openDialogEditar(id:number){
+  //   const dialogConfig = new MatDialogConfig();
+  //   this._experienciaService.getDetalle(id).subscribe((data) => { 
+  //     this.experiencia = data;
     
-    dialogConfig.data={data}
-    this.idActual = id;
-      console.log(data)
-   const dialog= this.dialog.open(CrearExperienciaComponent, dialogConfig);
-    // dialog.afterOpened.apply(this.crear?.cargaExp(id))
+  //   dialogConfig.data={data}
+  //   this.idActual = id;
+  //     console.log(data)
+  //  const dialog= this.dialog.open(CrearExperienciaComponent, dialogConfig);
+  //   // dialog.afterOpened.apply(this.crear?.cargaExp(id))
     
-  });
+  // });
     
-   }
+  //  }
   }
    
    

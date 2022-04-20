@@ -15,7 +15,7 @@ const routes: Routes = [
     {path:'reportes',component:ReportesComponent },
     {path:'crear-usuario',component:CrearUsuarioComponent },
     {path: 'experiencia',component:ExperienciaComponent},
-    {path:'crear-experiencia',component:CrearExperienciaComponent},
+    {path:'crear-experiencia/:id',component:CrearExperienciaComponent},
   ]}
 ];
 
