@@ -8,6 +8,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Experiencia } from 'src/app/interfaces/experiencia';
 import { Router } from '@angular/router';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 
 
@@ -26,12 +27,13 @@ export class ExperienciaComponent implements OnInit {
   
   
   @ViewChild(CrearExperienciaComponent) crear?: CrearExperienciaComponent;
-
-  // [x: string]: any;
+  listnueva= [1,2,3,4];
+  [x: string]: any;
   listExperiencia: any;
   private _experiencia: any;
   public get experiencia(): any {
     return this._experiencia;
+  
   }
   public set experiencia(value: any) {
     this._experiencia = value;
@@ -46,6 +48,7 @@ export class ExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarExperiencia();
+    
   }
   cargarExperiencia() {
     this._experienciaService.getExperiencia().subscribe((data) => {
@@ -104,6 +107,19 @@ export class ExperienciaComponent implements OnInit {
   // });
     
   //  }
+      largoLista() {
+        const largo= this.listExperiencia.length
+
+        return console.log(largo)
+
+
+
+
+      }
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.listExperiencia, event.previousIndex, event.currentIndex);
+  }
+
   }
    
    

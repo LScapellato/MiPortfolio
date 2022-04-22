@@ -26,15 +26,18 @@ export class UsuariosComponent implements OnInit {
   //filtro
   dataSource!: MatTableDataSource<any>;
 
-  //paginador
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  
+
+
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _usuarioService: UsuarioService,
     private _snackBar: MatSnackBar,
     public dialog: MatDialog
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit(): void {
     this.cargarUsuarios();
@@ -64,7 +67,7 @@ export class UsuariosComponent implements OnInit {
 
   //metodo paginador
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    
     this.dataSource.sort = this.sort;
   }
   applyFilter(event: Event) {

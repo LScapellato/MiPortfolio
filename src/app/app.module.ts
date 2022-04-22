@@ -10,6 +10,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -28,12 +30,14 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     
     
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
    

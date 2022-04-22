@@ -1,31 +1,44 @@
-<mat-toolbar color="primary" >
-    <div>
-    <a title="Argentina Programa" 
-    href='https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa'target="_blank">
-    <img src="../../../assets/img/APLogoe.png" width="13%"  /></a>
+<mat-toolbar color="primary">
+  <div>
+    <a title="Argentina Programa"
+      href='https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa'
+      target="_blank">
+      <img src="../../../assets/img/APLogoe.png" width="13%" /></a>
     <span class="textabajo">#YoProgramo</span>
-    </div>
-    <span class="spacer"></span>
-    <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect" >{{item.nombre}}</button>
-   
-    <span class="spacer"></span>
-    <button routerLink="/login" mat-icon-button class="material-icons-outlined" >
-        <mat-icon>mail</mat-icon>
-      </button>
-     
-      <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-      <a title="Linkedin" href="https://www.linkedin.com/in/leo-scapellato-16a84b35"><button  mat-icon-button class="material-icons" aria-label="icon-button with menu icon">
-        <mat-icon><img src="../../../assets/img/in.png" width="60%"  /></mat-icon>
-        
-      </button></a>
+  </div>
+  <span class="spacer"></span>
+  <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">{{item.nombre}}</button>
 
+  <span class="spacer"></span>
+  <button routerLink="/login" mat-icon-button class="material-icons-outlined">
+    <mat-icon>mail</mat-icon>
+  </button>
 
-    
-
-
-    <button routerLink="/login" mat-icon-button class="logout" aria-label="icon-button with menu icon">
-        <mat-icon>logout</mat-icon>
-      </button>
-
-  </mat-toolbar>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <a title="Linkedin" href="https://www.linkedin.com/in/leo-scapellato-16a84b35">
+    <button mat-icon-button class="material-icons" aria-label="icon-button with menu icon">
+      <mat-icon><img src="../../../assets/img/in.png" width="60%" /></mat-icon>
+    </button>
+  </a>
+  <button routerLink="/login" mat-icon-button class="logout" aria-label="icon-button with menu icon">
+    <mat-icon>logout</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="meno" aria-label="Example icon-button with a menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #meno="matMenu">
+    <button mat-menu-item>
+      <mat-icon>account_circle</mat-icon>
+      <span>Usuario</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar Sesion</span>
+    </button>
+    <button mat-menu-item disabled>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
   
+</mat-toolbar>

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 //Modules
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 //Angular material
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -20,6 +20,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {MatMenuModule} from '@angular/material/menu';
 
 //Angular firebase
 
@@ -44,7 +46,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatGridListModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule,
+    MatMenuModule,
+    FormsModule
     
   ],
   exports: [
@@ -66,7 +71,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatGridListModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    DragDropModule,
+    MatMenuModule
     
   ]
 

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { EstudiosComponent } from './estudios/estudios.component';
 import { CrearExperienciaComponent } from './experiencia/crear-experiencia/crear-experiencia.component';
 import { ExperienciaComponent } from './experiencia/experiencia.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path:'crear-usuario',component:CrearUsuarioComponent },
     {path: 'experiencia',component:ExperienciaComponent},
     {path:'crear-experiencia/:id',component:CrearExperienciaComponent},
+    {path: 'estudios',component:EstudiosComponent},
   ]}
 ];
 

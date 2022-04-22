@@ -1,24 +1,51 @@
 <div class="body">
-    
-    <div class="login">
-        <mat-spinner *ngIf="loading" class="spinner" diameter="60"></mat-spinner>
-    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="ingresar()">
-      <div >
-      <img   src="../../../assets/img/man.png" width="25%" />
-    </div>
-      <h1>Login</h1>
-      <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Usuario</mat-label>
-        <input matInput autocomplete="off" formControlName="usuario" />
-      </mat-form-field>
-      <mat-form-field class="ancho" appearance="fill">
-        <mat-label>Contraseña</mat-label>
-        <input type="password" matInput formControlName="password" />
-      </mat-form-field>
-      <br />
-      <button type="submit" class="ancho button" mat-raised-button color="primary" [disabled]="form.invalid">Ingresar</button>
-    </form>
-  </div>
-
   
+  <div class="login">
+    <mat-spinner *ngIf="loading" class="spinner" diameter="60"></mat-spinner>
+   
+      
+
+
+      <h2>Iniciar Sesion</h2>
+      <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="ingresar()">
+        <!-- <! -- email -->
+        <div class="input-group input-group mb-3">
+          <span class="input-group-text bg-white">
+            <i class="fas fa-at" [class.green-icon]="this.form.get('email')?.valid"
+              [class.red-icon]="this.form.get('email')?.errors && this.form.get('email')?.touched"></i>
+
+          </span>
+          <input formControlName="email" type="text" class="form-control" placeholder="Mail" maxlength="50">
+        </div>
+        <div *ngIf="this.form.get('email')?.errors && this.form.get('email')?.touched">
+          <p><a *ngIf="this.form.get('email')?.hasError('required')" class="text-danger">Debe ingresar email</a></p>
+          <p><a *ngIf="this.form.get('email')?.hasError('email')" class="text-danger">El formato de email debe ser
+              válido</a></p>
+        </div>
+
+
+        <!-- <! -- password -->
+        <div class="input-group input-group mb-3">
+          <span class="input-group-text bg-white">
+            <i class="fas fa-key" [class.green-icon]="this.form.get('password')?.valid"
+              [class.red-icon]="this.form.get('password')?.errors && this.form.get('password')?.touched"></i>
+
+          </span>
+          <input formControlName="password" type="password" class="form-control" placeholder="Clave" maxlength="10">
+        </div>
+        <div *ngIf="this.form.get('password')?.errors && this.form.get('password')?.touched">
+          <p><a *ngIf="this.form.get('password')?.hasError('required')" class="text-danger">Debe ingresar una
+              constraseña</a></p>
+          <p><a *ngIf="this.form.get('password')?.hasError('minLength')" class="text-danger">La contraseña debe tener
+              mínimo 8 caracteres</a></p>
+        </div>
+
+
+        <div class="d-grid gap-2">
+          <button [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg">Login&nbsp;
+            <i class="fas fa-right-to-bracket"></i></button>
+        </div>
+      </form>
+
+  </div>
 </div>

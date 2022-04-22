@@ -6,15 +6,15 @@ body {
 }
 
 body {
-  margin: 0;
+  margin: 12px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .container {
-  padding-top: 6em;
+  padding-top: 2em;
   margin-left: 80px;
   margin-right: 80px;
-  margin-top: 5px
+  margin-top: 15px
 }
 
 .spacer {

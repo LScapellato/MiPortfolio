@@ -33,6 +33,7 @@ export class DialogoComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       edad: ['', Validators.required],
+      email: ['', Validators.required, Validators.email]
     });
   }
   openDialog() {
@@ -41,9 +42,9 @@ export class DialogoComponent implements OnInit {
     this.dialog.open(DialogoComponent, dialogConfig);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   agregarUsuario() {
-    
+
     this._usuarioService.savePerson(this.form.value).subscribe((data) => {
       this.router.navigate(['/dashboard/usuarios']);
 
@@ -66,10 +67,10 @@ export class DialogoComponent implements OnInit {
 
   calculoEdad(): number {
     console.log(this.today);
-    var fecha = this.form.value.fecha_nacimiento;
+    const fecha = this.form.value.fecha_nacimiento;
     this.age = fecha;
     console.log('fecha:' + this.age);
-    if (this.form.value.fecha_nacimiento) {
+    if (fecha) {
       var timeDiff = Math.abs(Date.now() - this.form.value.fecha_nacimiento);
       console.log('timediff:' + timeDiff);
       console.log('Años:' + Math.ceil(timeDiff / (1000 * 3600 * 24) / 365));

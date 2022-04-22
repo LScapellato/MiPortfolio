@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
+
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard.component';
@@ -11,8 +11,9 @@ import { ReportesComponent } from './reportes/reportes.component';
 import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
 import { DialogoComponent } from './inicio/dialogo/dialogo.component';
 import { ExperienciaComponent} from './experiencia/experiencia.component';
-import { CrearExperienciaComponent } from './experiencia/crear-experiencia/crear-experiencia.component'
-
+import { CrearExperienciaComponent } from './experiencia/crear-experiencia/crear-experiencia.component';
+import { EstudiosComponent } from './estudios/estudios.component'
+ 
 
 @NgModule({
   declarations: [
@@ -24,15 +25,18 @@ import { CrearExperienciaComponent } from './experiencia/crear-experiencia/crear
     CrearUsuarioComponent,
     DialogoComponent,
     ExperienciaComponent,
-    CrearExperienciaComponent
+    CrearExperienciaComponent,
+    EstudiosComponent,
+    
     
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     SharedModule,
-    FormsModule,
-    ReactiveFormsModule
+    
+    
+   
  
   ]
 })
