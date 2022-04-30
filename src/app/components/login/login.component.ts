@@ -1,33 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
-  
+  isLogged = false;
+  isLoginFail = false;
   loading = false;
+  errMsj?: string;
 
   //probando form control
-  
-    
 
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private _snackBar: MatSnackBar,
+    private router: Router,
+    private auth: AuthService
+  ) {
     //inicializamos el formulario
-   
   }
   form = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl ('', [Validators.required, Validators.minLength(8)]),
-    })
-  ngOnInit(): void {
-  }
-
+    nombreUsuario: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
+    ]),
+  });
+  ngOnInit(): void {}
 
   // Creamos propiedades para obtener usuario y password
   // get Email()
@@ -41,55 +52,74 @@ export class LoginComponent implements OnInit {
   // }
 
   getMensajeError() {
-   const email = this.form.get('email')
-   
-    if(email?.hasError('required')) {
-      return "Debe ingresar un email";
+    const nombreUsuario = this.form.get('nombreUsuario');
+
+    if (nombreUsuario?.hasError('required')) {
+      return 'Debe ingresar un email';
     }
-    return this.form.get('email')?.hasError('email') ? "Ingrese email valido" : '';
+    return this.form.get('nombreUsuario')?.hasError('email')
+      ? 'Ingrese email valido'
+      : '';
   }
 
-
-
   ingresar() {
-
-    
-
-    if (this.form.value.email == 'admin@l' && this.form.value.password == "admin123") {
+    if (
+      this.form.value.email == 'admin@l' &&
+      this.form.value.password == 'admin123'
+    ) {
       this.fakeloading();
       //redireccionamos al dashboard
     } else {
-       this.error();
-       this.form.reset();
-
+      this.error();
+      this.form.reset();
     }
-
   }
 
   error() {
     this._snackBar.open('Usuario o contraseña invalido', '', {
       duration: 5000,
       horizontalPosition: 'center',
-      verticalPosition: 'bottom'
-    })
+      verticalPosition: 'bottom',
+    });
   }
 
   fakeloading() {
-    this.loading = true; setTimeout(() => {
+    this.loading = true;
+    setTimeout(() => {
       this.loading = false;
 
       //redireccionamos al dashboard
       this.router.navigate(['/dashboard']);
+    }, 3000);
+  }
 
+  onEnviar(event: Event) {
+    event.preventDefault; //
+    //borrar esto muestra la clave ????
+    //console.log("miconsole" + JSON.stringify(this.form.value))
+    this.auth.IniciarSesion(this.form.value).subscribe(
+      (data) => {
+        console.log("DATA:" + JSON.stringify(data));
+        this.isLogged = true;
+        this._snackBar.open('Bienvenido ' + data.nombreUsuario, 'OK', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        });
 
-    }, 3000);}
-
-
-   
-   
-    }
-  
-
-
-
-  
+        this.router.navigate(['/dashboard']);
+      },
+      (err) => {
+        this.isLogged = false;
+        this.isLoginFail = true;
+        this.errMsj = err.status;
+        console.log(this.errMsj);
+        // this._snackBar.open('Usuario no existe:' + this.errMsj ,'FAil', {
+        //   duration: 3000,
+        //   horizontalPosition: 'center',
+        //   verticalPosition: 'bottom',
+        // });
+      }
+    );
+  }
+}

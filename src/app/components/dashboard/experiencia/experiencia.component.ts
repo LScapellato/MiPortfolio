@@ -9,6 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Experiencia } from 'src/app/interfaces/experiencia';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -22,7 +23,8 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 export class ExperienciaComponent implements OnInit {
   
- 
+  roles: Array<string> = [];
+  isAdmin = false;
   @Output() idActual?: number
   
   
@@ -43,12 +45,19 @@ export class ExperienciaComponent implements OnInit {
     public dialog: MatDialog,
     public _snackBar: MatSnackBar,
     private router: Router,
+    private auth: AuthService
     
   ) {}
 
   ngOnInit(): void {
     this.cargarExperiencia();
-    
+    this.roles =this.auth.UsuarioAutenticado.authorities;
+    this.roles?.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+        console.log("Rol admin?:" + this.isAdmin)
+      }
+    });
   }
   cargarExperiencia() {
     this._experienciaService.getExperiencia().subscribe((data) => {
@@ -78,9 +87,14 @@ export class ExperienciaComponent implements OnInit {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-        this.cargarExperiencia();
+        
     }, 
-  )};
+    
+
+  )
+  this.cargarExperiencia();
+  console.log('Este '+ this.listExperiencia)
+      };
 
   detalleExperiencia(id:number){
    console.log('Trae id?' + id)

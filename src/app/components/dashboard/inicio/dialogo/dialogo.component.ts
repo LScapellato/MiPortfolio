@@ -16,8 +16,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./dialogo.component.css'],
 })
 export class DialogoComponent implements OnInit {
-  age: any;
-  showAge: any;
+  
   mail = new FormControl('', [Validators.required, Validators.email]);
   today: number = Date.now();
 
@@ -65,18 +64,5 @@ export class DialogoComponent implements OnInit {
     return this.mail.hasError('email') ? 'No es un email valido' : '';
   }
 
-  calculoEdad(): number {
-    console.log(this.today);
-    const fecha = this.form.value.fecha_nacimiento;
-    this.age = fecha;
-    console.log('fecha:' + this.age);
-    if (fecha) {
-      var timeDiff = Math.abs(Date.now() - this.form.value.fecha_nacimiento);
-      console.log('timediff:' + timeDiff);
-      console.log('Años:' + Math.ceil(timeDiff / (1000 * 3600 * 24) / 365));
-      return Math.ceil(timeDiff / (1000 * 3600 * 24) / 365);
-    } else {
-      return 0;
-    }
-  }
+ 
 }

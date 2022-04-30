@@ -22,6 +22,7 @@ export class UsuariosComponent implements OnInit {
     'edad',
     'mail',
     'telefono',
+    'acciones'
   ];
   //filtro
   dataSource!: MatTableDataSource<any>;
@@ -47,33 +48,34 @@ export class UsuariosComponent implements OnInit {
     this._usuarioService.getPerson().subscribe((data) => {
       this.listUsuarios = this.dataSource = data;
 
-      console.log(this.dataSource);
+      
     });
   }
 
   eliminarUsuario(id: number) {
-    console.log(id);
-    this._usuarioService.deletePerson(id);
-    this.cargarUsuarios();
+    
+    this._usuarioService.deletePerson(id).subscribe((data) => {
+     
+    })
+    
 
     this._snackBar.open('Usuario Eliminado Correctamente', '', {
       duration: 1500,
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
     });
+
+    this.cargarUsuarios();
   }
 
   
 
   //metodo paginador
-  ngAfterViewInit() {
+  // ngAfterViewInit() {
     
-    this.dataSource.sort = this.sort;
-  }
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  //   this.dataSource.sort = this.sort;
+  // }
+  
   openDialog() {
     //Pasamos nuestro componente del contenido que queremos pasar al modal
     const dialogRef = this.dialog.open(DialogoComponent);

@@ -71,7 +71,7 @@ export class CrearExperienciaComponent implements OnInit {
       .subscribe((data) => {
         this._snackBar.open(
           'Se Actualizado esta Experiencia',
-          'Experiencia Eliminada',
+          'Experiencia Actualizada',
           {
             duration: 3000,
             horizontalPosition: 'center',

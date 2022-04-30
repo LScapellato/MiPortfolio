@@ -21,10 +21,7 @@ body {
   flex: 1 1 auto;
 }
 
-.derecha {
 
-  align-items: right;
-}
 
 .buttomright {
   position: float right;

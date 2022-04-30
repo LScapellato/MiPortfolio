@@ -1,3 +1,4 @@
+
 <h1 class="ancho" mat-dialog-title>Crear Usuario</h1>
 <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
   <mat-dialog-content [formGroup]="form" (ngSubmit)="agregarUsuario()">
@@ -29,7 +30,7 @@
 
     <mat-form-field class="ancho">
       <input readonly type="text" matInput autocomplete="off" placeholder="Tu edad es" formControlName="edad"
-        [value]="calculoEdad()" />
+         />
     </mat-form-field>
   </mat-dialog-content>
 
