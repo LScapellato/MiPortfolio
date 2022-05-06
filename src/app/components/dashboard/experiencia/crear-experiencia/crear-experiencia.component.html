@@ -1,10 +1,9 @@
-<h1 mat-dialog-title>Experiencia</h1>
-<div mat-dialog-actions></div>
+<h1 mat-dialog-title>Cargar Experiencia</h1>
 
 <div mat-dialog-content>
-  <div class="example-form container">
+  
     <form role="form" [formGroup]="form" (ngSubmit)="agregarExperiencia()">
-      <div class="form-row">
+      
         <div class="form-group col-md-18">
           <label for="nombre_empresa">Empresa</label>
           <input
@@ -15,7 +14,7 @@
             placeholder="Nombre Empresa"
           />
         </div>
-        <div class="form-group col-md-18">
+        <div class="form-group col-md-25">
           <label for="puesto">Puesto</label>
           <input
             type="text"
@@ -25,7 +24,7 @@
             formControlName="puesto"
           />
         </div>
-      </div>
+      
       <div class="form-group">
         <label for="descripcion">Descripcion</label>
         <input
@@ -57,19 +56,9 @@
         </select>
       </div>
       <div class="form-row">
-        <!--<div class="form-group col-md-6">
-            <label for="puesto">Puesto</label>
-            <input type="text" class="form-control" id="puesto" />
-          </div> -->
-        <!-- <div class="form-group col-md-2">
-            <label for="fecha_inicio">Inicio</label>
-            <select id="fecha_inicio" class="form-control">
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div> -->
+        
 
-        <div class="form-group col-md-8">
+        <div class="col">
           <label for="fecha_inicio">Fecha Inicio</label>
           <input
             type="Date"
@@ -78,7 +67,7 @@
             formControlName="fecha_inicio"
           />
         </div>
-        <div class="form-group col-md-8">
+        <div class="col">
           <label for="fecha_fin">Fecha Fin</label>
           <input
             type="Date"
@@ -101,19 +90,19 @@
           </label>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Agregar</button>
+      <button type="submit" class="btn btn-primary">Crear Experiencia</button>
       <button
         Style="margin-left: 10px"
         type="button"
         class="btn btn-success"
         (click)="editarExperiencia()"
       >
-        Success
+        Editar
       </button>
     </form>
 
-    <!-- <div mat-dialog-actions>
+    <div mat-dialog-actions>
       <button mat-button mat-dialog-close>Close</button>
-    </div> -->
-  </div>
+    </div>
+  
 </div>

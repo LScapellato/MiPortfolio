@@ -31,3 +31,8 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
 }
+
+.buttonmargin {
+  
+  margin-left: 8px;
+}

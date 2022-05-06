@@ -1,6 +1,6 @@
 <div class="container">
   <mat-toolbar>
-    <span class="navbar-brand mb-0 h1">Experiencia  usuario Admin:{{isAdmin}}</span>
+    <span class="navbar-brand mb-0 h1">Experiencia  </span>
     <div class="spacer"></div>
     <button mat-button style="color: red" (click)="openCrearExperiencia()">
       <mat-icon>add_circle</mat-icon>
@@ -17,18 +17,20 @@
           <div class="spacer"></div>
           <mat-card-title>{{ experiencia.nombre_empresa }}</mat-card-title>
           <mat-card-actions>
+            
             <button *ngIf="isAdmin" mat-mini-fab color="primary"    routerLink="crear-experiencia/{{experiencia.id}}">
-              <mat-icon>create </mat-icon>
+              <mat-icon >create </mat-icon>
             </button>
               <button *ngIf="!isAdmin" disabled mat-mini-fab color="primary"    routerLink="crear-experiencia/{{experiencia.id}}">  
-              <mat-icon>create </mat-icon>
+              <mat-icon >create </mat-icon>
             </button>
-            <button  *ngIf="!isAdmin"  disabled mat-mini-fab color="primary"  (click)="borrarExperiencia(experiencia.id)">
+            <button class="buttonmargin" *ngIf="!isAdmin"  disabled mat-mini-fab color="primary"  (click)="borrarExperiencia(experiencia.id)">
               <mat-icon>delete</mat-icon>
             </button>
-            <button  *ngIf="isAdmin"  mat-mini-fab color="primary"  (click)="borrarExperiencia(experiencia.id)">
+            <button class="buttonmargin" *ngIf="isAdmin"  mat-mini-fab color="primary"  (click)="borrarExperiencia(experiencia.id)">
               <mat-icon>delete</mat-icon>
             </button>
+            
           </mat-card-actions>
           <mat-card-subtitle style="color: blue">{{
             experiencia.puesto

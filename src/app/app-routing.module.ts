@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 
 const routes: Routes = [ 
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'experiencia', component: ExperienciaComponent},
 

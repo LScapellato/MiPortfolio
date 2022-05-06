@@ -6,8 +6,9 @@
 
 
 
-
+    
     <h2>Iniciar Sesion</h2>
+    
     <form #f *ngIf="!loading" [formGroup]="form" (ngSubmit)="onEnviar($event)">
       <!-- <! -- email -->
       <div class="input-group input-group mb-3">
@@ -19,9 +20,8 @@
         <input formControlName="nombreUsuario" type="text" class="form-control" placeholder="Mail" maxlength="50">
       </div>
       <div *ngIf="this.form.get('nombreUsuario')?.errors && this.form.get('nombreUsuario')?.touched">
-        <p><a *ngIf="this.form.get('nombreUsuario')?.hasError('required')" class="text-danger">Debe ingresar email</a></p>
-        <p><a *ngIf="this.form.get('nombreUsuario')?.hasError('email')" class="text-danger">El formato de email debe ser
-            válido</a></p>
+        <p><a class="alert alert-danger mt-3">{{getMensajeErrorUser() }}</a></p>
+        
       </div>
 
 
@@ -32,22 +32,23 @@
             [class.red-icon]="this.form.get('password')?.errors && this.form.get('password')?.touched"></i>
 
         </span>
-        <input formControlName="password" type="password" class="form-control" placeholder="Clave" maxlength="10">
+        <input formControlName="password" type="password" class="form-control" placeholder="Clave" minLength="8">
       </div>
       <div *ngIf="this.form.get('password')?.errors && this.form.get('password')?.touched">
-        <p><a *ngIf="this.form.get('password')?.hasError('required')" class="text-danger">Debe ingresar una
-            constraseña</a></p>
-        <p><a *ngIf="this.form.get('password')?.hasError('minLength')" class="text-danger">La contraseña debe tener
-            mínimo 8 caracteres</a></p>
+        <p><a  class="alert alert-danger mt-3">{{getMensajeErrorPassword() }}</a></p>
+        
       </div>
 
 
       <div class="d-grid gap-2">
-        <button [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg">Login&nbsp;
+        <button mat-button  [disabled]="this.form.invalid" type="submit" class="btn btn-primary btn-lg">Login&nbsp;
           <i class="fas fa-right-to-bracket"></i></button>
       </div>
+     
     </form>
-    <div *ngIf=' isLoginFail' class="alert alert-danger mt-3">Usuario no registrado {{this.errMsj}}</div>
+    <!-- <div *ngIf=' isLoginFail' class="alert alert-danger mt-3"> {{errMsj}}</div> -->
+
+
     
   </div>
 </div>

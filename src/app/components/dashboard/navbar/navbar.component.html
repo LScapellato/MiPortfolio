@@ -15,7 +15,7 @@
   </button>
   
   <span class="spacer"></span>
-  <button routerLink="/login" mat-icon-button class="material-icons-outlined">
+  <button  mat-icon-button class="material-icons-outlined"(click)="rol()">
     <mat-icon>mail</mat-icon>
   </button>
 
@@ -43,7 +43,7 @@
     class="logout"
     aria-label="icon-button with menu icon"
   >
-    <mat-icon>logout</mat-icon>
+    <mat-icon>share</mat-icon>
   </button>
   <button
     mat-icon-button
@@ -54,20 +54,29 @@
   </button>
   <mat-menu #meno="matMenu">
     <button mat-menu-item>
-      <mat-icon>account_circle</mat-icon>
-      <span>Usuario: {{nombreUsuario}}</span>
+      <mat-icon [class.green-icon]="this.isAdmin" [class.blue-icon]="!this.isAdmin">account_circle</mat-icon>
+      <span> {{nombreUsuario}}</span>
     </button>
     <button mat-menu-item>
-      <mat-icon>account_circle</mat-icon>
-      <span>Usuario:{{rol()}} </span>
+      <mat-icon [class.green-icon]="this.isAdmin" [class.blue-icon]="!this.isAdmin">info</mat-icon>
+      <span> {{rolActual}} </span>
     </button>
-    <button mat-menu-item (click)="logOut()" routerLink="/login">
+
+    <div>
+    <button *ngIf="!isInvitado" (click)="logOut()"  mat-menu-item  >
+      <div  ><mat-icon  >logout</mat-icon><span>Cerrar Sesion</span></div>
+    
+    </button>
+      <button *ngIf="isInvitado" (click)="openLogin()" mat-menu-item >
+      <div  ><mat-icon [class.green-icon] >login</mat-icon><span>Iniciar Sesion</span></div>
+      
+    </button>
+  </div>
+    
+    <!-- <button [disabled]="isInvitado"  mat-menu-item (click)="logOut()" routerLink="/dashboard">
       <mat-icon>logout</mat-icon>
       <span>Cerrar Sesion</span>
-    </button>
-    <button mat-menu-item disabled>
-      <mat-icon>notifications_off</mat-icon>
-      <span>Disable alerts</span>
-    </button>
+    </button> -->
+   
   </mat-menu>
 </mat-toolbar>

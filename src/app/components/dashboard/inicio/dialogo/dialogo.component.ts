@@ -42,6 +42,9 @@ export class DialogoComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+  
+  
+  
   agregarUsuario() {
 
     this._usuarioService.savePerson(this.form.value).subscribe((data) => {

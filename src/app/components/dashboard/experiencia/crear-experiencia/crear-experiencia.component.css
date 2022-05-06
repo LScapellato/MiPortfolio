@@ -1,6 +1,7 @@
 .example-form {
     min-width: 150px;
-    max-width: 500px;
+    max-width: auto;
+    max-height: auto;
     width: 100%;
     padding-top: 80px;
     padding-left: 80px;
@@ -8,4 +9,13 @@
   
   .example-full-width {
     width: 100%;
+  }
+
+  .ancho {
+    width: 35%;
+    margin-top: 10px;
+    margin-left: 65px;
+    margin-right: 0px;
+    position: relative;
+    
   }
