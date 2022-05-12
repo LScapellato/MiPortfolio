@@ -22,6 +22,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //Angular firebase
 
@@ -49,7 +51,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatDialogModule,
     DragDropModule,
     MatMenuModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule,
+    MatProgressBarModule
     
   ],
   exports: [
@@ -73,7 +77,9 @@ import {MatMenuModule} from '@angular/material/menu';
     MatSelectModule,
     MatDialogModule,
     DragDropModule,
-    MatMenuModule
+    MatMenuModule,
+    MatRadioModule,
+    MatProgressBarModule
     
   ]
 

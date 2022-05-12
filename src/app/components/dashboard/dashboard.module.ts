@@ -12,7 +12,13 @@ import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.co
 import { DialogoComponent } from './inicio/dialogo/dialogo.component';
 import { ExperienciaComponent} from './experiencia/experiencia.component';
 import { CrearExperienciaComponent } from './experiencia/crear-experiencia/crear-experiencia.component';
-import { EstudiosComponent } from './estudios/estudios.component'
+import { EstudiosComponent } from './estudios/estudios.component';
+import { ExperienciaEditarComponent } from './experiencia/experiencia-editar/experiencia-editar.component';
+import { SkillsComponent } from './skills/skills.component';
+import { CrearSkillsComponent } from './skills/crear-skills/crear-skills.component';
+import { EditarSkillsComponent } from './skills/editar-skills/editar-skills.component';
+import { CrearEstudioComponent } from './estudios/crear-estudio/crear-estudio.component';
+import { EditarEstudioComponent } from './estudios/editar-estudio/editar-estudio.component'
  
 
 @NgModule({
@@ -27,6 +33,12 @@ import { EstudiosComponent } from './estudios/estudios.component'
     ExperienciaComponent,
     CrearExperienciaComponent,
     EstudiosComponent,
+    ExperienciaEditarComponent,
+    SkillsComponent,
+    CrearSkillsComponent,
+    EditarSkillsComponent,
+    CrearEstudioComponent,
+    EditarEstudioComponent,
     
     
   ],

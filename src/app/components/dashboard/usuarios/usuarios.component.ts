@@ -17,11 +17,11 @@ export class UsuariosComponent implements OnInit {
   listUsuarios: Usuario[] = [];
 
   displayedColumns: string[] = [
-    'nombre',
-    'apellido',
-    'edad',
-    'mail',
-    'telefono',
+    'nombre y apellido',
+    
+    
+    
+    'descripcion',
     'acciones'
   ];
   //filtro

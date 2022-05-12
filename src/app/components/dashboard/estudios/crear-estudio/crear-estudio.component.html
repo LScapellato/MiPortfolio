@@ -1,0 +1,70 @@
+<h2 mat-dialog-title>Cargar Estudio</h2>
+
+<div mat-dialog-content>
+  <form role="form" [formGroup]="form" (ngSubmit)="agregarEstudio()">
+    <div class="row -g2">
+      <div class="col">
+        <label for="Institucion" class="col-sm-2 control-label">Institucion</label>
+        <input formControlName="institucion" type="text" class="form-control" id="institucion"
+          placeholder="Institucion" />
+      </div>
+      <div class="col">
+        <label for="titulo">Titulo</label>
+        <input type="text" class="form-control" id="titulo" placeholder="Titulo" formControlName="titulo" />
+      </div>
+    </div>
+
+    <div class="form-group margen">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
+        formControlName="descripcion" />
+    </div>
+    
+    <div class="row g-2">
+      <div class="col">
+        <label for="fecha_inicio">Fecha Inicio</label>
+        <input type="Date" class="form-control" id="fecha_inicio" formControlName="fecha_inicio" />
+      </div>
+      <div class="col">
+        <label for="fecha_fin">Fecha Fin</label>
+        <input type="Date" class="form-control" id="fecha_fin" formControlName="fecha_fin" />
+      </div>
+    </div>
+    <!-- <div class="margen">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="actual" formControlName="actual" />
+        <label class="form-check-label" for="gridCheck">
+          Es trabajo actual ?
+        </label>
+      </div> -->
+      <!-- <input
+        formControlName="url_imagen"
+        type="text"
+        class="form-control"
+        id="url_imagen"
+        placeholder="Url imagen"
+        [value]="_imagenurl"
+      /> -->
+    
+    <div class="col">
+      <!-- <label for="Subir Imagen">Subir Imagen</label>
+      <input type="file" class="form-control" id="imagenurl" accept=".png, .jpg, .jpeg"
+        (change)="cargarImagen($event)" />
+    </div>
+    <div class="align margen">
+      <img class="imagenpres align" src="{{ imagenes[0] }}" alt="Imagen" />
+    </div>
+
+    <div class="margen">
+      <input formControlName="url_imagen" type="text" class="form-control form-control-sm" id="url_imagen"
+        placeholder="Url imagen" [value]="_imagenurl" readonly />-->
+    </div> 
+
+    <div class="col text-center spacer">
+      <button mat button type="submit" class="btn btn-primary">Cargar</button>
+      <button style="margin-left: 30px" mat-button mat-dialog-close class="btn btn-secondary">
+        Cerrar
+      </button>
+    </div>
+  </form>
+</div>

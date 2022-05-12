@@ -3,15 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  firebase: {
-    projectId: 'loginangular-a6582',
-    appId: '1:110361773101:web:7c51210c0df659ce8a24a4',
-    storageBucket: 'loginangular-a6582.appspot.com',
-    apiKey: 'AIzaSyAKcBuVC2WnSeog0urBRBoNDIbE5Rmvb-w',
-    authDomain: 'loginangular-a6582.firebaseapp.com',
-    messagingSenderId: '110361773101',
-  },
+  
   production: false,
+  firebaseConfig : {
+    apiKey: "AIzaSyBs2ygtiWBhZtxL_xZG7CVru0KGM08IFN0",
+    authDomain: "miportfolioimg.firebaseapp.com",
+    projectId: "miportfolioimg",
+    storageBucket: "miportfolioimg.appspot.com",
+    messagingSenderId: "6432590891",
+    appId: "1:6432590891:web:5d237fcacb85e2fea92e6e",
+    measurementId: "G-P9N5WWJ6XS"
+  }
 
 };
 /*

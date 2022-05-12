@@ -1,52 +1,54 @@
-.example-list {
+.estudios-list {
   width: 100%;
   max-width: 100%;
  
-  min-height: 60px;
+  min-height: 80px;
   display: flex;
   flex-direction: row;
-  background: white;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.649);
   border-radius: 4px;
   overflow: hidden;
 }
 
-.example-box {
+.estudios-box {
   padding: 20px 10px;
  
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
   background: white;
-  font-size: 14px;
-  flex-grow: 1;
+  font-size: 18px;
+  flex-grow: 2;
   flex-basis: 0;
 }
 
 .cdk-drag-preview {
   box-sizing: border-box;
-  border-radius: 4px;
-  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+  
+  box-shadow: 0 5px 5px -3px rgba(110, 52, 52, 0.2),
               0 8px 10px 1px rgba(0, 0, 0, 0.14),
               0 3px 14px 2px rgba(0, 0, 0, 0.12);
 }
 
 .cdk-drag-placeholder {
-  opacity: 0;
+  opacity: 10;
 }
 
-.cdk-drag-animating {
+/* .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-}
+} */
 
 .example-box:last-child {
   border: none;
 }
 
-.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+.estudios-list.cdk-drop-list-dragging .estudios-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
@@ -63,3 +65,33 @@
   width: 20em;
   height: 50em;
 }
+
+
+
+
+:host ::ng-deep .custom-spinner circle{   
+  stroke: #0CC20C;}
+
+  :host ::ng-deep .track circle{       
+      stroke-opacity: 0.3 !important;
+  }  
+
+
+  .card {
+   width: 20em;
+   height:12em;
+    margin-top: 1em;
+    margin-left: 1em;
+    text-align: center;
+      justify-content: center;
+      border-color: dodgerblue;
+      border-radius: 5px;
+      border: 1px solid ;color : dodgerblue;
+     
+  } 
+
+  .header-image {
+    /* background-image: url(''); */
+    background-size: cover;
+    background-position: center;
+  }

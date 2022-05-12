@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { AuthService } from 'src/app/services/auth.service';
 import {
   MatDialog,
@@ -94,7 +94,7 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       //redireccionamos al dashboard
       this.router.navigate(['/dashboard']);
-    }, 3000);
+    }, 4000);
 
     //actualizo dashboard para cargar el usuario logueado
     window.location.reload();
@@ -109,18 +109,26 @@ export class LoginComponent implements OnInit {
         console.log('DATA:' + JSON.stringify(data));
         this.isLogged = true;
 
-        this.fakeloading();
+        
 
         this._snackBar.open('Bienvenido ' + data.nombreUsuario, 'OK', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
+        this.fakeloading();
         this.dialog.closeAll();
       },
       (err) => {
         this.error();
         this.form.reset();
+         console.log(this.errMsj);
+        this._snackBar.open('Usuario no existe:' + this.errMsj ,'FAil', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        
+        
         // this.isLogged = false;
         // this.isLoginFail = true;
         // console.log(this.isLogged);
@@ -130,15 +138,13 @@ export class LoginComponent implements OnInit {
         //   this.error()
 
         // }
-        // console.log(this.errMsj);
-        // this._snackBar.open('Usuario no existe:' + this.errMsj ,'FAil', {
-        //   duration: 3000,
-        //   horizontalPosition: 'center',
-        //   verticalPosition: 'bottom',
-        // });
+       
+        });
       }
     );
   }
+
+  
   openDialog() {
     this.dialog.open(LoginComponent);
   }

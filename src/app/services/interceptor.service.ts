@@ -27,7 +27,7 @@ export class InterceptorService implements HttpInterceptor {
     
     
       
-       console.log ("Interceptor corre:" + JSON.stringify(authReq))
+      //  console.log ("Interceptor corre:" + JSON.stringify(authReq))
        
    return next.handle(authReq);
   }

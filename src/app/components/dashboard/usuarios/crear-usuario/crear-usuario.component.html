@@ -29,7 +29,7 @@
 
         <mat-grid-tile [colspan]="2" [rowspan]="1">
           <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="DOMICILIO" formControlName="domicilio" />
+            <input matInput autocomplete="off" placeholder="Titulo" formControlName="grado" />
           </mat-form-field>
         </mat-grid-tile>
 
@@ -46,6 +46,14 @@
               formControlName="fecha_nacimiento" />
           </mat-form-field>
         </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input matInput autocomplete="off" placeholder="Descripción" formControlName="descripcion" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        
 
         <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">

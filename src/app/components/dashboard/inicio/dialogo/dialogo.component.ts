@@ -32,7 +32,12 @@ export class DialogoComponent implements OnInit {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       edad: ['', Validators.required],
-      email: ['', Validators.required, Validators.email]
+      grado: ['', Validators.required],
+      fecha_nacimiento: ['', Validators.required],
+      telefono: [''],
+      mail: ['', [Validators.required, Validators.email]],
+      imagenurl: [''],
+      descripcion: ['', Validators.required],
     });
   }
   openDialog() {

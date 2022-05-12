@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-crear-experiencia',
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
 export class CrearExperienciaComponent implements OnInit {
   form: any;
   @Input() experiencia: any;
-
+  imagenes: any[]= [];
+  _imagenurl: any;
   // options: string[] = ['One', 'Two', 'Three'];
 
   constructor(
@@ -23,32 +25,35 @@ export class CrearExperienciaComponent implements OnInit {
     private _experienciaService: ExperienciaService,
     private _snackBar: MatSnackBar,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private storage:StorageService
   ) {
     this.form = this.fb.group({
-      nombre_empresa: [''],
-      puesto: [''],
-      descripcion: [''],
-      fecha_inicio: [''],
-      fecha_fin: [''],
-      actual: [''],
-      tipoempleo: [''],
+      nombre_empresa: ['', Validators.required],
+      puesto: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      fecha_inicio: ['', Validators.required],
+      fecha_fin: ['', Validators.required],
+      actual: ['', Validators.required],
+      tipoempleo: ['', Validators.required],
+      url_imagen: [''],
     });
   }
 
   ngOnInit(): void {
-    this.cargaExp();
+    
   }
 
-  openDialog() {
+  public openDialog() {
     this.dialog.open(CrearExperienciaComponent);
   }
 
   agregarExperiencia() {
     this._experienciaService
+    
       .saveExperiencia(this.form.value)
       .subscribe((data) => {
-        console.log(data);
+       
         this._snackBar.open(
           'Se ha Creado Experiencia correctamente',
           'Experiencia Creada',
@@ -62,26 +67,26 @@ export class CrearExperienciaComponent implements OnInit {
       });
   }
 
-  editarExperiencia() {
-    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+  // editarExperiencia() {
+  //   const id = parseInt(this.route.snapshot.paramMap.get('id')!, 3);
 
-    console.log(this.form.value.all);
-    this._experienciaService
-      .updateExperiencia(id, this.form.value)
-      .subscribe((data) => {
-        this._snackBar.open(
-          'Se Actualizado esta Experiencia',
-          'Experiencia Actualizada',
-          {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom',
-          }
-        );
-        // this.form.reset();
-        this.router.navigate(['/dashboard']);
-      });
-  }
+  //   console.log(this.form.value.all);
+  //   this._experienciaService
+  //     .updateExperiencia(id, this.form.value)
+  //     .subscribe((data) => {
+  //       this._snackBar.open(
+  //         'Se Actualizado esta Experiencia',
+  //         'Experiencia Actualizada',
+  //         {
+  //           duration: 3000,
+  //           horizontalPosition: 'center',
+  //           verticalPosition: 'bottom',
+  //         }
+  //       );
+  //       // this.form.reset();
+  //       this.router.navigate(['/dashboard']);
+  //     });
+  //
 
   cargaExp() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
@@ -100,4 +105,44 @@ export class CrearExperienciaComponent implements OnInit {
       });
     });
   }
+
+  cargarImagen(event:any) {
+
+    console.log(event.target.files);
+    let imagen =event.target.files
+    let reader= new FileReader();
+
+    reader.readAsDataURL(imagen[0]);
+    reader.onprogress 
+    reader.onloadend= ()=>{
+      console.log(reader.result)
+      this.imagenes.push(reader.result)
+      this.storage.subirImagen(this.form.value.nombre_empresa + "_" + Date.now(), reader.result).then(urlImagen=>{
+        this._imagenurl =  urlImagen?.toString(), 
+        this.form.patchValue({url_imagen: this._imagenurl})
+        
+      })
+      this._snackBar.open(
+        'La imagen se cargo correctamente',
+        'Imagen Actualizada',
+        {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom',
+        }
+      );
+    }
+
+    
+
+    
+
+  }
+
+ 
+  // cargarurl() {
+  //   this.form.patchValue({url_imagen: this._imagenurl}),
+  //   console.log(typeof (this._imagenurl))
+  //   console.log(this._imagenurl)
+  // }
 }

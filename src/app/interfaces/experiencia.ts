@@ -7,8 +7,6 @@ export interface Experiencia {
     fecha_fin: Date;
     descripcion: string;
     tipoempleo: string;
-
-
-
-
+    url_imagen: string;
+    fk_persona: number
 }

@@ -1,0 +1,105 @@
+<div class="container">
+  <mat-toolbar>
+    <span class="navbar-brand mb-0 h1">Soft Skills</span>
+    
+    <button mat-button style="color: black" (click)="openCrearSkills()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+   
+  </mat-toolbar>
+   <div class="estudios-list">
+    
+  <div *ngFor="let skill of listskills">
+    <div *ngIf="(skill.tipo==='Blandas')">
+      
+        
+        
+  <mat-card class="card">
+    <mat-card-subtitle class="blue-text" >{{skill.nombre_habilidad}}</mat-card-subtitle>
+    
+    <mat-card-content class="login">
+      <div class="body" >
+       
+      <mat-card-content >
+        <mat-progress-spinner
+          class="custom-spinner login"
+          strokeWidth="13"
+          mode="determinate"
+          
+          
+          value="{{ skill.valor }}"
+        > 
+        </mat-progress-spinner>
+        
+      </mat-card-content>
+      
+      </div>
+    </mat-card-content >
+    <a>({{skill.valor}}/100)</a>
+    <mat-card-actions>
+      <button mat-button>Editar</button>
+      <button mat-button (click)="borrarSkill(skill.id)">Eliminar</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate"  value="{{ skill.valor }}" class="green-progress"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  </div>
+</div>
+</div>
+
+  
+</div>
+
+<div class="container">
+  <mat-toolbar>
+    <span class="navbar-brand mb-2 h1">Hard Skills</span>
+    
+    <button mat-button style="color: black" (click)="openCrearSkills()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+   
+  </mat-toolbar>
+   <div class="estudios-list">
+    
+  <div *ngFor="let skill of listskills">
+    <div *ngIf="(skill.tipo==='Duras')">
+      
+        
+        
+  <mat-card class="card">
+    <mat-card-subtitle class="blue-text">{{skill.nombre_habilidad}}</mat-card-subtitle>
+    <mat-card-title></mat-card-title>
+    <mat-card-content>
+      <div class="body" >
+        <div class="login">
+      <mat-card-content >
+        <mat-progress-spinner
+          class="custom-spinner login"
+          strokeWidth="15"
+          mode="determinate"
+          
+          
+          value="{{ skill.valor }}"
+        > 
+        </mat-progress-spinner>
+        
+      </mat-card-content>
+      </div>
+      </div>
+    </mat-card-content>
+    <a>({{skill.valor}}/100)</a>
+    <mat-card-actions>
+      <button mat-button>Editar</button>
+      <button mat-button (click)="borrarSkill(skill.id)">Eliminar</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <mat-progress-bar mode="determinate"  value="{{ skill.valor }}" class="green-progress"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+  </div>
+</div>
+</div>
+
+  
+</div>

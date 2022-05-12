@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
@@ -9,14 +14,9 @@ import { DatePipe, formatDate } from '@angular/common';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  styleUrls: ['./crear-usuario.component.css'],
 })
 export class CrearUsuarioComponent implements OnInit {
-
-
-
-
-
   tiles: any[] = [
     { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
     { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
@@ -27,65 +27,58 @@ export class CrearUsuarioComponent implements OnInit {
   //sexo: any[] = ['Masculino','Femenino']
   form: FormGroup;
 
-  constructor(private fb: FormBuilder,
+  constructor(
+    private fb: FormBuilder,
     private _usuarioService: UsuarioService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog) {
-
-
+    public dialog: MatDialog
+  ) {
     this.form = this.fb.group({
-
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       edad: ['', Validators.required],
-      domicilio: ['', Validators.required],
+      grado: ['', Validators.required],
       fecha_nacimiento: ['', Validators.required],
       telefono: [''],
-      mail: ['', [Validators.required, Validators.email]]
-    })
+      mail: ['', [Validators.required, Validators.email]],
+      imagenurl: [''],
+      descripcion: ['', Validators.required],
+    });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   agregarUsuario() {
-
-
-
-
     /*const user: Usuario = {
       
       nombre: this.form.value.nombre,
       apellido: this.form.value.apellido,
       edad: this.form.value.edad,*/
 
-    this._usuarioService.savePerson(this.form.value).subscribe(data => {
-      this.router.navigate(['/dashboard/usuarios'])
-
-      this._snackBar.open('Usuario Creado Correctamente', '',
-        { duration: 1500, horizontalPosition: 'center', verticalPosition: 'bottom' })
-      this.form.reset()
+    this._usuarioService.savePerson(this.form.value).subscribe((data) => {
+      this.router.navigate(['/dashboard/usuarios']);
+      console.log(data);
+      this._snackBar.open('Usuario Creado Correctamente', '', {
+        duration: 1500,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom',
+      });
+      this.form.reset();
     });
   }
 
   volver() {
-    this.router.navigate(['/dashboard/usuarios'])
+    this.router.navigate(['/dashboard/usuarios']);
   }
-
-
-
-
-
-
 
   getErrorMessage() {
     if (this.form.get('mail')?.hasError('required')) {
       return 'Debe ingresar un email';
     }
 
-    return this.form.get('mail')?.hasError('mail') ? 'No es un email valido' : '';
+    return this.form.get('mail')?.hasError('mail')
+      ? 'No es un email valido'
+      : '';
   }
-
-
 }

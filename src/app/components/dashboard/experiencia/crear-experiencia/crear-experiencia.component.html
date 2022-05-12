@@ -1,108 +1,82 @@
-<h1 mat-dialog-title>Cargar Experiencia</h1>
+<h2 mat-dialog-title>Cargar Experiencia</h2>
 
 <div mat-dialog-content>
-  
-    <form role="form" [formGroup]="form" (ngSubmit)="agregarExperiencia()">
-      
-        <div class="form-group col-md-18">
-          <label for="nombre_empresa">Empresa</label>
-          <input
-            formControlName="nombre_empresa"
-            type="text"
-            class="form-control"
-            id="nombre_empresa"
-            placeholder="Nombre Empresa"
-          />
-        </div>
-        <div class="form-group col-md-25">
-          <label for="puesto">Puesto</label>
-          <input
-            type="text"
-            class="form-control"
-            id="puesto"
-            placeholder="Puesto"
-            formControlName="puesto"
-          />
-        </div>
-      
-      <div class="form-group">
-        <label for="descripcion">Descripcion</label>
-        <input
-          type="text"
-          class="form-control"
-          id="descripcion"
-          placeholder="Descripcion"
-          formControlName="descripcion"
-        />
+  <form role="form" [formGroup]="form" (ngSubmit)="agregarExperiencia()">
+    <div class="row -g2">
+      <div class="col">
+        <label for="nombre_empresa">Empresa</label>
+        <input formControlName="nombre_empresa" type="text" class="form-control" id="nombre_empresa"
+          placeholder="Nombre Empresa" />
       </div>
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01"
-            >Tipo de Empleo</label
-          >
-        </div>
-        <select
-          class="custom-select"
-          id="inputGroupSelect01"
-          formControlName="tipoempleo"
-        >
-          <option selected>informal</option>
-          <option value="Relacion de Dependencia">
-            Relacion de dependencia
-          </option>
-          <option value="Independiente">Independiente</option>
-          <option value="Freelance">Freelance</option>
-          <option value="Monotributista">Monotributista</option>
-        </select>
+      <div class="col">
+        <label for="puesto">Puesto</label>
+        <input type="text" class="form-control" id="puesto" placeholder="Puesto" formControlName="puesto" />
       </div>
-      <div class="form-row">
-        
-
-        <div class="col">
-          <label for="fecha_inicio">Fecha Inicio</label>
-          <input
-            type="Date"
-            class="form-control"
-            id="fecha_inicio"
-            formControlName="fecha_inicio"
-          />
-        </div>
-        <div class="col">
-          <label for="fecha_fin">Fecha Fin</label>
-          <input
-            type="Date"
-            class="form-control"
-            id="fecha_fin"
-            formControlName="fecha_fin"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="actual"
-            formControlName="actual"
-          />
-          <label class="form-check-label" for="gridCheck">
-            Es trabajo actual ?
-          </label>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Crear Experiencia</button>
-      <button
-        Style="margin-left: 10px"
-        type="button"
-        class="btn btn-success"
-        (click)="editarExperiencia()"
-      >
-        Editar
-      </button>
-    </form>
-
-    <div mat-dialog-actions>
-      <button mat-button mat-dialog-close>Close</button>
     </div>
-  
+
+    <div class="form-group margen">
+      <label for="descripcion">Descripcion</label>
+      <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
+        formControlName="descripcion" />
+    </div>
+    <div class="input-group mb-3 margen">
+      <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Tipo de Empleo</label>
+      </div>
+
+      <select class="custom-select form-group" id="inputGroupSelect01" formControlName="tipoempleo">
+        <option selected>informal</option>
+        <option value="Relacion de Dependencia">Relacion de dependencia</option>
+        <option value="Independiente">Independiente</option>
+        <option value="Freelance">Freelance</option>
+        <option value="Monotributista">Monotributista</option>
+      </select>
+    </div>
+    <div class="row g-2">
+      <div class="col">
+        <label for="fecha_inicio">Fecha Inicio</label>
+        <input type="Date" class="form-control" id="fecha_inicio" formControlName="fecha_inicio" />
+      </div>
+      <div class="col">
+        <label for="fecha_fin">Fecha Fin</label>
+        <input type="Date" class="form-control" id="fecha_fin" formControlName="fecha_fin" />
+      </div>
+    </div>
+    <div class="margen">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="actual" formControlName="actual" />
+        <label class="form-check-label" for="gridCheck">
+          Es trabajo actual ?
+        </label>
+      </div>
+      <!-- <input
+        formControlName="url_imagen"
+        type="text"
+        class="form-control"
+        id="url_imagen"
+        placeholder="Url imagen"
+        [value]="_imagenurl"
+      /> -->
+    </div>
+    <div class="col">
+      <label for="Subir Imagen">Subir Imagen</label>
+      <input type="file" class="form-control" id="imagenurl" accept=".png, .jpg, .jpeg"
+        (change)="cargarImagen($event)" />
+    </div>
+    <div class="align margen">
+      <img class="imagenpres align" src="{{ imagenes[0] }}" alt="Imagen" />
+    </div>
+
+    <div class="margen">
+      <input formControlName="url_imagen" type="text" class="form-control form-control-sm" id="url_imagen"
+        placeholder="Url imagen" [value]="_imagenurl" readonly />
+    </div>
+
+    <div class="col text-center spacer">
+      <button mat button type="submit" class="btn btn-primary">Cargar</button>
+      <button style="margin-left: 30px" mat-button mat-dialog-close class="btn btn-secondary">
+        Cerrar
+      </button>
+    </div>
+  </form>
 </div>

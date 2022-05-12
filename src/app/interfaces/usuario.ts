@@ -3,7 +3,7 @@ id?: number;
 nombre: string;
 apellido: string;
 edad: number;
-domicilio: string;
+grado: string;
 mail: string;
 telefono: string;
 fecha_nacimiento: Date;

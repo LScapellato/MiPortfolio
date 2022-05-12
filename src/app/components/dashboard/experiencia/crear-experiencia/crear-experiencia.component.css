@@ -12,10 +12,32 @@
   }
 
   .ancho {
-    width: 35%;
+    width: 100%;
     margin-top: 10px;
     margin-left: 65px;
     margin-right: 0px;
     position: relative;
     
+  }
+  .margen{
+    margin-top:10px;
+    margin-bottom: 5px;
+    
+  }
+
+  .imagenpres{
+   position: flex;
+    max-width: 200Px;
+    max-height: 200px;
+    border-radius: 60em;
+    padding: 1rem;
+    box-shadow: 0 0 6px -1px;
+  }
+
+  .align {
+   
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
   }

@@ -1,18 +1,8 @@
-import {
-  Component,
-  OnInit,
-  ViewChild,
-  EventEmitter,
-  Output,
-} from '@angular/core';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-
+import { Component, OnInit,  Output } from '@angular/core';
+import { MatDialog} from '@angular/material/dialog';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
-import { DialogoComponent } from '../inicio/dialogo/dialogo.component';
 import { CrearExperienciaComponent } from './crear-experiencia/crear-experiencia.component';
-import { MatSort, Sort } from '@angular/material/sort';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Experiencia } from 'src/app/interfaces/experiencia';
 import { Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AuthService } from 'src/app/services/auth.service';
@@ -29,11 +19,12 @@ export class ExperienciaComponent implements OnInit {
   isInvitado = true;
   @Output() idActual?: number;
 
-  @ViewChild(CrearExperienciaComponent) crear?: CrearExperienciaComponent;
-  listnueva = [1, 2, 3, 4];
-  [x: string]: any;
+  // @ViewChild(CrearExperienciaComponent) crear?: CrearExperienciaComponent;
+  // listnueva = [1, 2, 3, 4];
+  // [x: string]: any;
   listExperiencia: any;
   private _experiencia: any;
+  
   public get experiencia(): any {
     return this._experiencia;
   }
@@ -55,15 +46,24 @@ export class ExperienciaComponent implements OnInit {
   cargarExperiencia() {
     this._experienciaService.getExperiencia().subscribe((data) => {
       this.listExperiencia = data;
+     
     });
   }
   openCrearExperiencia() {
-    //Pasamos nuestro componente del contenido que queremos pasar al modal
+    //Pasamos nuestro componente del contenido que queremos pasar al modal no estoy seguro que sea la mejor forma.
+    
+
+
     const dialogRef = this.dialog.open(CrearExperienciaComponent);
 
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(`Dialog result: ${result}`);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      this.cargarExperiencia();
+    });
+
+
+
+
+
   }
 
   borrarExperiencia(id: number) {
@@ -81,31 +81,18 @@ export class ExperienciaComponent implements OnInit {
     this.cargarExperiencia();
   }
 
-  detalleExperiencia(id: number) {
-    this.idActual = id;
-
-    this.router.navigate(['/dashboard/crear-experiencia/' + id]);
-  }
-
-  //  openDialogEditar(id:number){
-  //   const dialogConfig = new MatDialogConfig();
-  //   this._experienciaService.getDetalle(id).subscribe((data) => {
-  //     this.experiencia = data;
-
-  //   dialogConfig.data={data}
+  // detalleExperiencia(id: number) {
   //   this.idActual = id;
-  //     console.log(data)
-  //  const dialog= this.dialog.open(CrearExperienciaComponent, dialogConfig);
-  //   // dialog.afterOpened.apply(this.crear?.cargaExp(id))
 
-  // });
+  //   this.router.navigate(['/dashboard/experiencia-editar/' + id]);
+  // }
 
-  //  }
-  largoLista() {
-    const largo = this.listExperiencia.length;
+  // largoLista() {
+  //   const largo = this.listExperiencia.length;
 
-    return console.log(largo);
-  }
+  //   return console.log(largo);
+  // }
+//Drag and Drop
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(
       this.listExperiencia,
@@ -113,7 +100,7 @@ export class ExperienciaComponent implements OnInit {
       event.currentIndex
     );
   }
-
+//TODO Investigar esto para hacerlo mejor
   rol() {
     this.rolActual = this.auth.Rol;
 
@@ -125,26 +112,6 @@ export class ExperienciaComponent implements OnInit {
       this.isInvitado = false;
     }
   }
+
+  
 }
-
-//   if (JSON.stringify(this.roles) !== undefined) {
-
-//    if (JSON.stringify(this.roles).includes('ROLE_ADMIN')) {
-//     this.isAdmin = true;
-//     this.rolActual = 'Administrador';
-
-//   }
-
-//   else  {
-//     (!JSON.stringify(this.roles).includes('ROLE_ADMIN') && JSON.stringify(this.roles).includes('ROLE_USER'))
-//     this.isAdmin= false;
-//     this.rolActual ="Usuario"
-//     console.log(this.rolActual)}
-
-//   }
-//     else {
-//       this.rolActual="Invitado"
-
-//     }
-
-// }

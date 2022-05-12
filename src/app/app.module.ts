@@ -41,7 +41,7 @@ import { InterceptorService } from './services/interceptor.service';
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
    
     

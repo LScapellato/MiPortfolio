@@ -15,7 +15,7 @@
     </mat-form-field>
 
     <mat-form-field class="ancho">
-      <input matInput autocomplete="off" placeholder="DOMICILIO" formControlName="domicilio" />
+      <input matInput autocomplete="off" placeholder="Titulo o Rol" formControlName="grado" />
     </mat-form-field>
 
     <mat-form-field class="ancho">
@@ -28,16 +28,23 @@
         formControlName="fecha_nacimiento" />
     </mat-form-field>
 
-    <mat-form-field class="ancho">
-      <input readonly type="text" matInput autocomplete="off" placeholder="Tu edad es" formControlName="edad"
-         />
+    <mat-form-field class="dobleancho" >
+      <textarea  type="text" matInput autocomplete="off" placeholder="Descripcion" formControlName="descripcion">
+      
+         </textarea>
     </mat-form-field>
+
+
+  
+  
+  
   </mat-dialog-content>
+
 
   <div mat-dialog-actions>
     <button mat-button mat-dialog-close>Close</button>
     <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
-      Registrar
+      Registrar    {{this.form.invalid}}
     </button>
   </div>
 </form>
