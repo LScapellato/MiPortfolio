@@ -102,7 +102,7 @@ export class ExperienciaComponent implements OnInit {
   }
 //TODO Investigar esto para hacerlo mejor
   rol() {
-    this.rolActual = this.auth.Rol;
+    this.rolActual = this.auth.Rol();
 
     if (this.rolActual !== 'Administrador' && this.rolActual !== 'Usuario') {
       this.isAdmin = false;

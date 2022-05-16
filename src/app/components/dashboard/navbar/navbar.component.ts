@@ -87,7 +87,7 @@ export class NavbarComponent implements OnInit {
     this.auth.logOut();
   }
   rol() {
-    this.rolActual = this.auth.Rol;
+    this.rolActual = this.auth.Rol();
 
     if (this.rolActual !== 'Administrador' && this.rolActual !== 'Usuario') {
       this.isAdmin = false;

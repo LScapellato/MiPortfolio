@@ -39,7 +39,7 @@ export class ExperienciaEditarComponent implements OnInit {
   editarExperiencia() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
 
-    console.log(this.form.value.all);
+    // console.log(this.form.value.all);
     this._experienciaService
       .updateExperiencia(id, this.form.value)
       .subscribe((data) => {

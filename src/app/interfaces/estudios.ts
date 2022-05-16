@@ -1,4 +1,4 @@
-export interface Experiencia {
+export interface Estudios {
     id?: number;
     institucion: string;
     titulo: string;

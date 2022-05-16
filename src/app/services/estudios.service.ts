@@ -15,7 +15,7 @@ export class EstudiosService {
   }
 
   public getEstudioDetalle(id: number): Observable<any> {
-    return this.http.get(this.API_SERVER + id )
+    return this.http.get(this.API_SERVER + 'detalle/'+ id )
   }
 
   public saveEstudio(estudio: any): Observable<any> {

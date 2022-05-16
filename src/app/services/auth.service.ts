@@ -34,7 +34,9 @@ export class AuthService {
   }
 
   get UsuarioAutenticado() {
+    
     return this.currentUserSubject.value;
+    
   }
 
   public getAuthorities() {
@@ -42,7 +44,7 @@ export class AuthService {
     console.log(window.sessionStorage.getItem('currentUser'));
   }
 
-  get Rol() {
+  public Rol() {
     this.roles = this.UsuarioAutenticado.authorities;
 
     if (JSON.stringify(this.roles) !== undefined) {

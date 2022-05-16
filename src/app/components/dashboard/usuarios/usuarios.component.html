@@ -1,10 +1,10 @@
 
-<div class="container">
-  <mat-toolbar>
+<div class="container; ini">
+  <mat-toolbar styles="margin-top: 25px">
     <span>Usuarios</span>
     <div class="spacer"></div>
-    <button mat-raised-button color="primary" routerLink="/dashboard/crear-usuario">Agregar</button>
-    <button mat-button (click)="openDialog()">Dialogo</button><button mat-button >Editar</button>
+    <button mat-raised-button color="primary" [disabled]="!isAdmin" (click)="openDialog()">Agregar</button>
+   
   </mat-toolbar>
   
   
@@ -46,16 +46,16 @@
       <ng-container matColumnDef="acciones" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
      
-        <td mat-cell *matCellDef="let element" style="text-align: right">
+        <td mat-cell *matCellDef="let element" style="text-align: center">
           
-          <a class="pointer" style="color: black" matTooltip="Buscar">
-            <mat-icon>search</mat-icon>
-          </a>
+          
           <a class="pointer" style="color: black" matTooltip="Editar">
+            <button mat-icon-button [disabled]="!isAdmin" routerLink="/dashboard/crear-usuario/{{element.id}}" >
             <mat-icon>edit</mat-icon>
+          </button>
           </a>
           <a class="pointer"  style="color: black" matTooltip="Borrar">
-            <button mat-icon-button style="color: rgb(168, 227, 168)" (click)="eliminarUsuario(element.id)">
+            <button mat-icon-button [disabled]="!isAdmin"  (click)="eliminarUsuario(element.id)">
               <mat-icon>delete</mat-icon>
             </button>
 

@@ -48,6 +48,8 @@ export class CrearSkillsComponent implements OnInit {
           }
         );
         this.form.reset();
+        this.dialog.closeAll();
+
       },
 
       (err) => {
@@ -67,7 +69,7 @@ export class CrearSkillsComponent implements OnInit {
     } else {
       if (err.status === 403) {
         this._snackBar.open(
-          'Usuario Sin Permiso: ' + err.status,
+          'Usuario Sin Permisos: ' + err.status,
           'Rol Insuficiente',
           {
             duration: 3000,

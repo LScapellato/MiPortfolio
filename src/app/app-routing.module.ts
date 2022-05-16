@@ -4,6 +4,7 @@ import { ExperienciaComponent } from './components/dashboard/experiencia/experie
 
 import { LoginComponent } from './components/login/login.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
+import { GuardGuard } from './services/guard.guard';
 
 const routes: Routes = [ 
   { path: '',   redirectTo: '/dashboard', pathMatch: 'full' },

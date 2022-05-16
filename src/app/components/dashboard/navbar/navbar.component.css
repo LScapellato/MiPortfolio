@@ -17,3 +17,11 @@
 .blue-icon{
   color:rgb(173, 196, 230)
 }
+
+.fija {
+  position: absolute;
+  top: 0;
+  z-index: 4;
+  overflow: hidden;
+  
+  }

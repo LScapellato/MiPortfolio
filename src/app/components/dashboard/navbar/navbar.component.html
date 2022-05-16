@@ -10,6 +10,31 @@
     <span class="textabajo">#YoProgramo</span>
   </div>
   <span class="spacer"></span>
+  <!-- <div>
+    <span class="spacer"></span>
+  <button
+  *ngIf="isInvitado" (click)="openLogin()"
+    mat-icon-button
+    class="logout"
+    aria-label="icon-button with menu icon"
+    
+  >
+    <mat-icon>login</mat-icon><a> Iniciar Sesion </a>
+  </button>
+  <span class="spacer"></span>
+  <button
+  *ngIf="!isInvitado" (click)="logOut()"
+    mat-icon-button
+    class="logout"
+    aria-label="icon-button with menu icon"
+    
+  >
+  <mat-icon >logout</mat-icon><a>Cerrar Sesion</a> 
+  </button>
+ </div> -->
+
+
+
   <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">
     {{ item.nombre }}
   </button>
@@ -18,6 +43,9 @@
   <button  mat-icon-button class="material-icons-outlined"(click)="rol()">
     <mat-icon>mail</mat-icon>
   </button>
+
+
+  
 
   <script
     src="https://platform.linkedin.com/badges/js/profile.js"
@@ -29,6 +57,7 @@
     title="Linkedin"
     href="https://www.linkedin.com/in/leo-scapellato-16a84b35"
   >
+  <span class="spacer"></span>
     <button
       mat-icon-button
       class="material-icons"
@@ -37,14 +66,38 @@
       <mat-icon><img src="../../../assets/img/in.png" width="60%" /></mat-icon>
     </button>
   </a>
+  <span class="spacer"></span>
   <button
     routerLink="/login"
     mat-icon-button
     class="logout"
     aria-label="icon-button with menu icon"
   >
+  <span class="spacer"></span>
     <mat-icon>share</mat-icon>
   </button>
+  <!-- <div>
+    <span class="spacer"></span>
+  <button
+  *ngIf="isInvitado" (click)="openLogin()"
+    mat-icon-button
+    class="logout"
+    aria-label="icon-button with menu icon"
+    
+  >
+    <mat-icon>login</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <button
+  *ngIf="!isInvitado" (click)="logOut()"
+    mat-icon-button
+    class="logout"
+    aria-label="icon-button with menu icon"
+    
+  >
+  <mat-icon >logout</mat-icon><span > Cerrar Sesion</span>
+  </button>
+ </div> -->
   <button
     mat-icon-button
     [matMenuTriggerFor]="meno"
@@ -52,6 +105,7 @@
   >
     <mat-icon>more_vert</mat-icon>
   </button>
+
   <mat-menu #meno="matMenu">
     <button mat-menu-item>
       <mat-icon [class.green-icon]="this.isAdmin" [class.blue-icon]="!this.isAdmin">account_circle</mat-icon>

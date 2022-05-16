@@ -1,4 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
+/* // You can add global styles to this file, and also import other style files */
 
 html,
 body {
@@ -14,7 +14,11 @@ body {
   padding-top: 2em;
   margin-left: 80px;
   margin-right: 80px;
-  margin-top: 15px
+  margin-top: 15px;
+  z-index: 0;
+  overflow: hidden;
+  
+  
 }
 
 .spacer {
@@ -28,7 +32,7 @@ body {
   bottom: 8px;
   right:0px;
 
-}
+} 
 
 
 
@@ -37,3 +41,14 @@ body {
   top: 0;
   no lo uso quedaba fijada la barra de menu. no me gusto
   } */
+
+
+  .navcolor {
+    border-radius: 1em;
+    color:white;
+    background-color: rgba(96, 73, 106, 0.737);
+  }
+
+  .ini {
+    margin-top: 6em;
+  }

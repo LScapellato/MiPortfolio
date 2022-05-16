@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container; ini">
   <mat-toolbar>
-    <span>Crear Usuario</span>
+    <span>Editar Usuario</span>
     <div class="spacer"></div>
     <button mat-raised-button color="primary" routerLink="/dashboard/usuarios">
       Volver
     </button>
   </mat-toolbar>
   <mat-card style="margin-top: 8px">
-    <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
+    <form [formGroup]="form" (ngSubmit)="editarUsuario()">
       <mat-grid-list cols="3" rows="3" rowHeight="4:1">
         <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
@@ -27,9 +27,15 @@
           </mat-form-field>
         </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
           <mat-form-field class="ancho">
             <input matInput autocomplete="off" placeholder="Titulo" formControlName="grado" />
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input matInput autocomplete="off" placeholder="urlimagen" formControlName="imagenurl" />
           </mat-form-field>
         </mat-grid-tile>
 
@@ -53,6 +59,11 @@
           </mat-form-field>
         </mat-grid-tile>
 
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+          <mat-form-field class="ancho">
+            <input matInput autocomplete="off" placeholder="Titulo" formControlName="telefono" />
+          </mat-form-field>
+        </mat-grid-tile>
         
 
         <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">

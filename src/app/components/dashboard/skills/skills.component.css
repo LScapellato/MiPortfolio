@@ -69,13 +69,13 @@
       .estudios-list {
         width: 100%;
         max-width: 100%;
-       
+       margin-top:2em;
         min-height: 80px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         background: rgba(255, 255, 255, 0.649);
-        border-radius: 6px;
+        border-radius: 2em;
         overflow: hidden;
       }
       
@@ -105,7 +105,7 @@
       }
       
       .cdk-drag-placeholder {
-        opacity: 10;
+        opacity: 1;
       }
       
       /* .cdk-drag-animating {

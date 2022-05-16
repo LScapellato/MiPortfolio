@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogoComponent } from '../inicio/dialogo/dialogo.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-usuarios',
@@ -15,6 +16,9 @@ import { DialogoComponent } from '../inicio/dialogo/dialogo.component';
 })
 export class UsuariosComponent implements OnInit {
   listUsuarios: Usuario[] = [];
+  isAdmin = false;
+  rolActual = '';
+  isInvitado = true;
 
   displayedColumns: string[] = [
     'nombre y apellido',
@@ -35,7 +39,8 @@ export class UsuariosComponent implements OnInit {
   constructor(
     private _usuarioService: UsuarioService,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private auth: AuthService
   ) {
     
   }
@@ -84,4 +89,21 @@ export class UsuariosComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+  //TODO Investigar esto para hacerlo mejor
+  rol() {
+    this.rolActual = this.auth.Rol();
+
+    if (this.rolActual !== 'Administrador' && this.rolActual !== 'Usuario') {
+      this.isAdmin = false;
+      this.isInvitado = true;
+    } else {
+      if (this.rolActual == 'Administrador') this.isAdmin = true;
+      this.isInvitado = false;
+    }
+  }
+
+
+
+
 }
+

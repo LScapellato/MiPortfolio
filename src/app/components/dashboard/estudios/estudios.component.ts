@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Router } from '@angular/router';
 import { EstudiosService } from 'src/app/services/estudios.service';
@@ -19,6 +19,7 @@ export class EstudiosComponent {
   
   estudios: any;
   private _estudios: any;
+  @Output() idActual?: number;
 
 
   constructor(
@@ -61,7 +62,7 @@ export class EstudiosComponent {
 
   //TODO Investigar esto para evitar repetir en todos los componentes
   rol() {
-    this.rolActual = this.auth.Rol;
+    this.rolActual = this.auth.Rol();
 
     if (this.rolActual !== 'Administrador' && this.rolActual !== 'Usuario') {
       this.isAdmin = false;
@@ -88,5 +89,12 @@ openCrearEstudio() {
 
 
 }
+
+detalleEstudio(id: number) {
+  this.idActual = id;
+  console.log(id)
+  this.router.navigate(['/dashboard/editar-estudio/' + id]);
+}
+
 
 }

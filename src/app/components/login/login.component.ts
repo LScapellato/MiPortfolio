@@ -68,18 +68,18 @@ export class LoginComponent implements OnInit {
       : 'Minimo 8 caracteres';
   }
 
-  ingresar() {
-    if (
-      this.form.value.email == 'admin@l' &&
-      this.form.value.password == 'admin123'
-    ) {
-      this.fakeloading();
-      //redireccionamos al dashboard
-    } else {
-      this.error();
-      this.form.reset();
-    }
-  }
+  // ingresar() {
+  //   if (
+  //     this.form.value.email == 'admin@l' &&
+  //     this.form.value.password == 'admin123'
+  //   ) {
+  //     this.fakeloading();
+  //     //redireccionamos al dashboard
+  //   } else {
+  //     this.error();
+  //     this.form.reset();
+  //   }
+  // }
 
   error() {
     this._snackBar.open('Usuario o contraseña invalido', '', {

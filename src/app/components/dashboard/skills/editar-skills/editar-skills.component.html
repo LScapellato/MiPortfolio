@@ -1,1 +1,61 @@
-<p>editar-skills works!</p>
+<div class="container">
+<h3 mat-dialog-title class="text-center">Editar Habilidad</h3>
+
+
+
+<div mat-dialog-content class="body" >
+  
+    <form role="form" [formGroup]="form" (ngSubmit)="editarSkills()">
+      
+        <div class= 'col'>
+          <label for="nombre_habilidad">Habilidad</label> 
+          <input
+            formControlName="nombre_habilidad"
+            type="text"
+            class="form-control"
+            id="nombre_habilidad"
+            placeholder="Habilidad"
+          />
+        </div>
+        <div class="col">
+          <label for="valor">Valor</label>
+          <input
+            type="number"
+            class="form-control"
+            id="valor"
+            placeholder="valor"
+            formControlName="valor"
+          />
+        </div>
+      
+      
+      <div class="input-group mb-3" style="margin-top: 2em">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Tipo</label
+          >
+        </div>
+        <select
+          class="custom-select"
+          id="inputGroupSelect01"
+          formControlName="tipo"
+        >
+          <option selected>Duras</option>
+          <option value="Blandas">
+            Blandas
+          </option>
+          
+        </select>
+      </div>
+      <div class="row">
+        <div class="col text-center spacer">
+      <button mat-button type="submit" class="btn btn-primary">Cargar</button>
+      <button style="margin-left:30px"mat-button (click)="redir()" class=" btn btn-secondary">Cerrar</button>
+     </div>
+    </div>
+  
+    </form>
+    
+  
+</div>
+</div>

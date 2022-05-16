@@ -26,6 +26,12 @@ export class UsuarioService {
     
   }
 
-  
+  public updatePersona(id: number, persona:string): Observable<any> {
+    return this.http.put(this.API_SERVER + 'editar/'+ id, persona)
+  }
+
+  public getPersonaDetalle(id: any): Observable<any> {
+    return this.http.get(this.API_SERVER + 'detalle/'+ id)
+  }
   
 }

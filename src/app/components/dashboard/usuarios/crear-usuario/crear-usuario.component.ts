@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,22 +17,25 @@ import { DatePipe, formatDate } from '@angular/common';
   styleUrls: ['./crear-usuario.component.css'],
 })
 export class CrearUsuarioComponent implements OnInit {
-  tiles: any[] = [
-    { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
-    { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
-    { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
-    { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
-  ];
+  // tiles: any[] = [
+  //   { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+  //   { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+  //   { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+  //   { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
+  // ];
 
   //sexo: any[] = ['Masculino','Femenino']
   form: FormGroup;
+  @Input() usuario: any;
 
   constructor(
     private fb: FormBuilder,
     private _usuarioService: UsuarioService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private route: ActivatedRoute,
+   
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -47,8 +50,32 @@ export class CrearUsuarioComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {this.cargaUsuario();}
 
+  cargaUsuario() {
+    const id: any = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+    
+    this._usuarioService.getPersonaDetalle(id).subscribe((data)=>{
+      this.usuario= data;
+      console.log(data)
+      this.form.setValue({
+        nombre: this.usuario.nombre,
+        apellido: this.usuario.apellido,
+        edad: this.usuario.edad,
+        grado: this.usuario.grado,
+        descripcion: this.usuario.descripcion,
+        imagenurl: this.usuario.imagenurl,
+        fecha_nacimiento: this.usuario.fecha_nacimiento,
+        telefono: this.usuario.telefono,
+        mail: this.usuario.mail,
+      })
+      
+      // this.form.reset();
+      // this.router.navigate(['/dashboard']);
+    });
+  }
+  
+  
   agregarUsuario() {
     /*const user: Usuario = {
       
@@ -69,7 +96,7 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   volver() {
-    this.router.navigate(['/dashboard/usuarios']);
+    this.router.navigate(['/dashboard']);
   }
 
   getErrorMessage() {
@@ -81,4 +108,17 @@ export class CrearUsuarioComponent implements OnInit {
       ? 'No es un email valido'
       : '';
   }
+
+  editarUsuario() {
+    const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
+
+    this._usuarioService.updatePersona(id, this.form.value)
+    .subscribe((data)=> {
+      this._snackBar.open('Usuario Actualizado' ,'OK',
+      {duration: 3000, horizontalPosition:'center', verticalPosition:'bottom'});
+      this.router.navigate(['/dashboard']);
+    });
+  }
 }
+
+
