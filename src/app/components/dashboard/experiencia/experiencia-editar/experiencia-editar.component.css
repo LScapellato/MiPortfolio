@@ -1,0 +1,24 @@
+.imagen {
+    max-width:10%;
+    max-height: 10%;
+    border-radius:100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-left:45%;
+    position: relative;
+}
+
+
+
+.imagenProfile {
+
+    border-radius: 100%;
+    max-width:auto;
+    max-width: 80%;
+    margin-top: 2px;
+    margin-left:2px;
+    
+    justify-content: center;
+    
+    }

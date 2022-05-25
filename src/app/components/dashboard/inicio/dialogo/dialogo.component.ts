@@ -58,14 +58,17 @@ export class DialogoComponent implements OnInit {
   agregarUsuario() {
 
     this._usuarioService.savePerson(this.form.value).subscribe((data) => {
-      this.router.navigate(['/dashboard/usuarios']);
-
+     
+      console.log('dialogo.component: '+ data)
       this._snackBar.open('Usuario Creado Correctamente', '', {
-        duration: 1500,
+        duration: 3000,
         horizontalPosition: 'center',
         verticalPosition: 'bottom',
+
       });
+
       this.form.reset();
+      this.router.navigate(['/']);
     });
   }
 

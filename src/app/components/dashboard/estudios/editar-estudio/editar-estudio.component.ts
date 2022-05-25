@@ -26,6 +26,7 @@ export class EditarEstudioComponent implements OnInit {
       titulo: [''],
       descripcion: [''],
       url_imagen: [''],
+      persona: [''],
       
     });
    }
@@ -35,9 +36,9 @@ export class EditarEstudioComponent implements OnInit {
 
   editarEstudio() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
-
-    this._estudiosService.updateEstudio(id ,this.form.value.all).subscribe((skill) => {
-
+    
+    this._estudiosService.updateEstudio(id ,this.form.value).subscribe((data) => {
+      
       this._snackBar.open(
         'Se Actualizado esta Capacitación',
         'Estudio Actualizado',
@@ -68,6 +69,7 @@ export class EditarEstudioComponent implements OnInit {
       titulo: this.estudio?.titulo,
       descripcion: this.estudio?.descripcion,
       url_imagen: this.estudio?.url_imagen,
+      persona: null,
           
         });
       });

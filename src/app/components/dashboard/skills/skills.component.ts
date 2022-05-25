@@ -65,10 +65,17 @@ export class SkillsComponent implements OnInit {
     console.log(id)
     this.router.navigate(['/dashboard/editar-skills/' + id]);
   }
+  convertir(value: number) { this.value = value*3.60 
+    
 
+  }
   openCrearSkills() {
     //Pasamos nuestro componente del contenido que queremos pasar al modal
-    this.dialog.open(CrearSkillsComponent);
+   const dialogRef= this.dialog.open(CrearSkillsComponent);
+
+   dialogRef.afterClosed().subscribe(result => {
+     this.cargarSkills();
+   })
   }
   ///TODO REPITO EL CODIGO VER COMO RESOLVER
   rol() {
@@ -82,4 +89,6 @@ export class SkillsComponent implements OnInit {
       this.isInvitado = false;
     }
   }
+
+ 
 }

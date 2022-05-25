@@ -1,38 +1,45 @@
+<app-navbar></app-navbar>
 <div class="back1">
-  <div class="container ">
+  <div class="container">
     <div class="cat">
       <img src="../../../../assets/img/bannerBlanco.png" class="banner" />
-
-
-
     </div>
-    <mat-card class="container">
-     
 
+    <mat-card class="cardborder">
+      <div *ngFor="let persona of listPersona" class="row">
+        <div class="col-md-2" styles="margin-top:1em">
+          <img class="imagenProfile" src="{{ persona.imagenurl }}" />
+        </div>
+        <div class="col-md-3" style="margin-top: 3em">
+          <mat-card-title
+            >{{ persona.nombre }} {{ persona.apellido }}</mat-card-title
+          >
 
-        <div *ngFor="let persona of listPersona" class="row">
-          <div class="spacer"></div>
-          <div class="col-md-2" styles="margin-top:1em">
-            <img #sombra class="imagenProfile" src="{{persona.imagenurl}}"  />
-          </div>  
-            <div class="col-md-3" style="margin-top:3em">
-            <mat-card-title>{{persona.nombre}} {{persona.apellido}}</mat-card-title>
-            
-            <mat-card-subtitle style="color: blue">{{persona.grado}}</mat-card-subtitle>
-            
-            <mat-card-actions>
-              <button *ngIf="isAdmin" mat-icon-button routerLink="/dashboard/crear-usuario/{{persona.id}}">
-                <mat-icon >create</mat-icon>
-              </button>
-              <button mat-button >
-                <mat-icon matTooltip="Agregar Persona" (click)="openDialog()" >person_add</mat-icon>
-              </button>
-            </mat-card-actions>
+          <mat-card-subtitle style="color: blue">{{
+            persona.grado
+          }}</mat-card-subtitle>
+
+          <mat-card-actions>
+            <button
+              *ngIf="isAdmin"
+              mat-icon-button
+              routerLink="/dashboard/crear-usuario/{{ persona.id }}"
+            >
+              <mat-icon>create</mat-icon>
+            </button>
+            <button *ngIf="isAdmin" mat-button>
+              <mat-icon matTooltip="Agregar Persona" (click)="openDialog()"
+                >person_add</mat-icon
+              >
+            </button>
+          </mat-card-actions>
+        </div>
+
+        <mat-card-content class="col-md-7">
+          <div class="descripcion" style="margin-top: 2em">
+            {{ persona.descripcion }}
           </div>
-            
-               <mat-card-content class="col-md-7">
-                 {{persona.descripcion}}
-        <!-- <p>
+          <!-- <p>
           <b>Analista de datos</b> tres años de experiencia en
           <b>Data Cleansing y Herramientas BI</b>. Actualmente iniciando mis
           primeros pasos como <b>Full Stack Developer,</b> con ganas de trabajar
@@ -50,32 +57,45 @@
           y actualmente doy Cursos de Capacitación de Estos temas en un instituto
           de Formación de oficios.
         </p> -->
-      </mat-card-content>
-   </div>
+        </mat-card-content>
+      </div>
     </mat-card>
   </div>
-
   <app-experiencia></app-experiencia>
   <app-estudios></app-estudios>
   <app-skills></app-skills>
+  <app-reportes> </app-reportes>
 
   <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">&copy; 2022 </p>
+    <footer
+      class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+    >
+      <p class="col-md-4 mb-0 text-muted">&copy; 2022</p>
 
-      <a href="/"
-        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+      <a
+        href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+      >
         <svg class="bi me-2" width="40" height="32">
           <use xlink:href="#bootstrap" />
         </svg>
       </a>
 
       <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">Proyectos</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-muted">About Me</a>
+        </li>
       </ul>
     </footer>
   </div>
+</div>

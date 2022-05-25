@@ -46,7 +46,7 @@ export class GuardGuard implements CanActivate {
       if (mensaje) {
         this.dialog.open(LoginComponent);
       } else {
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/inicio']);
       }
 
       return false;

@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ExperienciaService {
-  private API_SERVER = 'http://localhost:8080/experiencia/';
+  
+    // private API_SERVER= 'http://localhost:8080/experiencia/';
+  private API_SERVER = 'https://bemiportfolio.herokuapp.com/experiencia/';
 
   constructor(private http: HttpClient) {}
 

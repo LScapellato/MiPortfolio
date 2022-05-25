@@ -5,7 +5,7 @@
       href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
       target="_blank"
     >
-      <img src="../../../assets/img/APLogoe.png" width="13%"
+      <img src="../../../assets/img/APLogo.png" width="100em"
     /></a>
     <span class="textabajo">#YoProgramo</span>
   </div>
@@ -39,8 +39,8 @@
     {{ item.nombre }}
   </button>
   
-  <span class="spacer"></span>
-  <button  mat-icon-button class="material-icons-outlined"(click)="rol()">
+  <!-- <span class="spacer"></span> -->
+  <button  mat-icon-button class="material-icons-outlined">
     <mat-icon>mail</mat-icon>
   </button>
 
@@ -57,47 +57,26 @@
     title="Linkedin"
     href="https://www.linkedin.com/in/leo-scapellato-16a84b35"
   >
-  <span class="spacer"></span>
+ 
     <button
       mat-icon-button
       class="material-icons"
       aria-label="icon-button with menu icon"
     >
-      <mat-icon><img src="../../../assets/img/in.png" width="60%" /></mat-icon>
+      <mat-icon><img src="../../../assets/img/in.png" width="80%" /></mat-icon>
     </button>
   </a>
-  <span class="spacer"></span>
+  
   <button
     routerLink="/login"
     mat-icon-button
     class="logout"
     aria-label="icon-button with menu icon"
   >
-  <span class="spacer"></span>
+ 
     <mat-icon>share</mat-icon>
   </button>
-  <!-- <div>
-    <span class="spacer"></span>
-  <button
-  *ngIf="isInvitado" (click)="openLogin()"
-    mat-icon-button
-    class="logout"
-    aria-label="icon-button with menu icon"
-    
-  >
-    <mat-icon>login</mat-icon>
-  </button>
-  <span class="spacer"></span>
-  <button
-  *ngIf="!isInvitado" (click)="logOut()"
-    mat-icon-button
-    class="logout"
-    aria-label="icon-button with menu icon"
-    
-  >
-  <mat-icon >logout</mat-icon><span > Cerrar Sesion</span>
-  </button>
- </div> -->
+ 
   <button
     mat-icon-button
     [matMenuTriggerFor]="meno"
@@ -117,7 +96,7 @@
     </button>
 
     <div>
-    <button *ngIf="!isInvitado" (click)="logOut()"  mat-menu-item  >
+    <button *ngIf="!isInvitado" (click)="logOut()" routerLink="/inicio" mat-menu-item  >
       <div  ><mat-icon  >logout</mat-icon><span>Cerrar Sesion</span></div>
     
     </button>
@@ -127,10 +106,7 @@
     </button>
   </div>
     
-    <!-- <button [disabled]="isInvitado"  mat-menu-item (click)="logOut()" routerLink="/dashboard">
-      <mat-icon>logout</mat-icon>
-      <span>Cerrar Sesion</span>
-    </button> -->
+   
    
   </mat-menu>
 </mat-toolbar>

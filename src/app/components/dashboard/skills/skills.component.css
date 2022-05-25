@@ -1,35 +1,35 @@
-.example-h2 {
+/* .example-h2 {
     margin: 10px;
-  }
+  } */
   
-  .example-section {
+  /* .example-section {
     display: flex;
     align-content: center;
     align-items: center;
     text-align: center;
     height: auto;
-  }
+  } */
   
-  .example-margin {
+  /* .example-margin {
     margin: 0 10px;
-  }
+  } */
 
  
 
-.twitter-like{
+/* .twitter-like{
     
         display: inline;
-    }
+    } */
 
   
   :host ::ng-deep .custom-spinner circle{   
     stroke: #a8dc9c;}
 
     :host ::ng-deep .track circle{       
-        stroke-opacity: 0.3 !important;
+        stroke-opacity: 0.6 !important;
     }  
 
-    .spinner-box {
+    /* .spinner-box {
         padding: 80px 10px;
        
         color: rgba(0, 0, 0, 0.87);
@@ -44,9 +44,9 @@
         font-size: 18px;
         flex-grow: 0;
         flex-basis: 0;
-      }
+      } */
 
-      .spinner-list {
+      /* .spinner-list {
         width: 100%;
         max-width: 100%;
        
@@ -57,16 +57,16 @@
         background: rgba(223, 12, 12, 0.649);
         border-radius: 4px;
         overflow: hidden;
-      }
+      } */
 
 
-      .ancho-card {
+      /* .ancho-card {
         max-width: 100px;
         height: auto;
-      }
+      } */
       
 
-      .estudios-list {
+      .spinner-list {
         width: 100%;
         max-width: 100%;
        margin-top:2em;
@@ -79,7 +79,7 @@
         overflow: hidden;
       }
       
-      .estudios-box {
+      /* .estudios-box {
         padding: 20px 10px;
        
         color: rgba(0, 0, 0, 0.87);
@@ -94,36 +94,36 @@
         font-size: 18px;
         flex-grow: 2;
         flex-basis: 0;
-      }
+      } */
       
-      .cdk-drag-preview {
+      /* .cdk-drag-preview {
         box-sizing: border-box;
         border-radius: 4px;
         box-shadow: 0 5px 5px -3px rgba(110, 52, 52, 0.2),
                     0 8px 10px 1px rgba(0, 0, 0, 0.14),
                     0 3px 14px 2px rgba(0, 0, 0, 0.12);
-      }
+      } */
       
-      .cdk-drag-placeholder {
+      /* .cdk-drag-placeholder {
         opacity: 1;
-      }
+      } */
       
       /* .cdk-drag-animating {
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
       } */
       
-      .example-box:last-child {
+      /* .example-box:last-child {
         border: none;
-      }
+      } */
       
-      .estudios-list.cdk-drop-list-dragging .estudios-box:not(.cdk-drag-placeholder) {
+      /* .estudios-list.cdk-drop-list-dragging .estudios-box:not(.cdk-drag-placeholder) {
         transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
-      }
+      } */
       
 
-      .center {
+      /* .center {
        
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
@@ -131,15 +131,15 @@
         -webkit-transform: translateX(-50%) translateY(-50%);
       
       
-      }
+      } */
 
-      .login {
+      /* .login {
         width: 100%;
         max-width: 330px;
         text-align: center;
         justify-content: center;
         align-items: center;
-    }
+    } */
 
     .body {
       text-align: center;
@@ -159,17 +159,17 @@
   }
 
   .card {
-    max-width: 200px;
-    max-height:350px;
+    width: 200px;
+    max-height:auto;
     margin-top: 1em;
     margin-left: 1em;
     text-align: center;
       justify-content: center;
-      
+      border-radius: 6px;
   }
-  .green-progress .mat-progress-bar-fill::before {
+  /* .green-progress .mat-progress-bar-fill::before {
     background-color: green !important;
-}
+} */
 
 
 .blue-text {
@@ -177,3 +177,33 @@
   color: darkblue !important;
   text-align: center !important;
 }
+
+.wrapper {
+  display: flex; 
+  position: relative;
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+  height: calc(25vh - 10px);
+  background: linear-gradient(to right, #cbcdd0, #d8e0ed92);
+  z-index: 0;
+  border-radius:6px;
+}
+/* .inner {
+  background: rgb(3, 133, 3);
+  color: white;
+  padding: 12px;
+} */
+
+.superpos {
+text-size-adjust: 25px;
+color: black;
+ position:absolute;
+ top:45%;
+ left: 40%;
+ font-weight: bolder;
+
+
+  
+}
+

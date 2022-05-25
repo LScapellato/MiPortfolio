@@ -18,7 +18,7 @@ export class InterceptorService implements HttpInterceptor {
       var currentUser=this.authservice.UsuarioAutenticado;
       const token= 'Bearer ' + currentUser.token;
       
-    //transformamos el request obtenemos el token y lo cargamos para
+    //transformamos el request obtenemos el token y lo cargamos al headers 
     
     const authReq = req.clone({
       headers: req.headers.set('Authorization', token)
@@ -27,7 +27,7 @@ export class InterceptorService implements HttpInterceptor {
     
     
       
-       console.log ("Interceptor corre:" + JSON.stringify(authReq))
+      //  console.log ("Interceptor corre:" + JSON.stringify(authReq))
        
    return next.handle(authReq);
   }

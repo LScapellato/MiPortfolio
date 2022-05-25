@@ -56,8 +56,8 @@
           <div class="col-md-1 ">
             <mat-card-actions>
               <div *ngIf="!isInvitado">
-                <button *ngIf="isAdmin" mat-mini-fab color="primary"
-                  routerLink="experiencia-editar/{{experiencia.id}}">
+                <button *ngIf="isAdmin" mat-mini-fab color="primary" (click)="irEditar(experiencia.id)"
+                  >
                   <mat-icon>create </mat-icon>
                 </button>
                 <button *ngIf="!isAdmin" disabled mat-mini-fab color="primary">

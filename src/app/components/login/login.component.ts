@@ -68,18 +68,7 @@ export class LoginComponent implements OnInit {
       : 'Minimo 8 caracteres';
   }
 
-  // ingresar() {
-  //   if (
-  //     this.form.value.email == 'admin@l' &&
-  //     this.form.value.password == 'admin123'
-  //   ) {
-  //     this.fakeloading();
-  //     //redireccionamos al dashboard
-  //   } else {
-  //     this.error();
-  //     this.form.reset();
-  //   }
-  // }
+ 
 
   error() {
     this._snackBar.open('Usuario o contraseña invalido', '', {
@@ -89,26 +78,25 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  fakeloading() {
-    this.loading = true;
-    setTimeout(() => {
-      //redireccionamos al dashboard
-      this.router.navigate(['/dashboard']);
-    }, 4000);
-
-    //actualizo dashboard para cargar el usuario logueado
-    window.location.reload();
-  }
+  // fakeloading() {
+  //   this.loading = true;
+  //   setTimeout(() => {
+  //     //redireccionamos al dashboard
+      
+  //   }, 5000);
+    
+  //   //actualizo dashboard para cargar el usuario logueado
+  //   window.location.reload();
+  // }
 
   onEnviar(event: Event) {
     event.preventDefault; //
-    //borrar esto muestra la clave ????
-    //console.log("miconsole" + JSON.stringify(this.form.value))
+    
     this.auth.IniciarSesion(this.form.value).subscribe(
       (data) => {
         console.log('DATA:' + JSON.stringify(data));
         this.isLogged = true;
-
+          this.router.navigate(['/dashboard/inicio']);
         
 
         this._snackBar.open('Bienvenido ' + data.nombreUsuario, 'OK', {
@@ -116,28 +104,20 @@ export class LoginComponent implements OnInit {
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         });
-        this.fakeloading();
+        
         this.dialog.closeAll();
       },
       (err) => {
         this.error();
         this.form.reset();
-         console.log(this.errMsj);
-        this._snackBar.open('Usuario no existe:' + this.errMsj ,'FAil', {
+         this.router.navigate(['inicio']),
+        this._snackBar.open('Usuario no existe:' + this.errMsj ,'Fail', {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
+          
         
-        
-        // this.isLogged = false;
-        // this.isLoginFail = true;
-        // console.log(this.isLogged);
-        // console.log('Error: ' + err.status)
-        // if (err.status === '401') {
-        //   this.errMsj = "El Usuario no Existe";
-        //   this.error()
-
-        // }
+       
        
         });
       }
@@ -145,7 +125,5 @@ export class LoginComponent implements OnInit {
   }
 
   
-  openDialog() {
-    this.dialog.open(LoginComponent);
-  }
+
 }

@@ -47,6 +47,7 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarUsuarios();
+    this.rol();
   }
 
   cargarUsuarios() {

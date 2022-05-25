@@ -1,20 +1,20 @@
-.example-card {
+/* .example-card {
     max-width: 200px;
-  }
+  } */
   
-  .example-header-image {
+  /* .example-header-image {
     background-image: url("../../../../assets/img/mifoto.jpg");
     background-size: cover;
     align-content: center;
-  }
+  } */
 
   .banner {
     max-width: 100%;
     max-height: 100%;
     background: #d0dbf0;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #dcdaf9, #a3b3ce);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #cbddf0, #e3e5e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 2em; margin-top:3em;
+  background: -webkit-linear-gradient(to right, #939395, #a3b3ce);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,#939395, #e3e5e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 2em;
    }
    .cat {
     height: 100%;
@@ -25,45 +25,36 @@
 
     border-radius: 100%;
     max-width:auto;
-    max-width: 100%;
-    margin-top: 2px;
-    margin-left:2px;
+    max-width:60%;
+    margin-top: 2em;
+    margin-left:2em;
     align-items: center;
     justify-content: center;
     
     }
 
 
-    #sombra {
-      float:left;
-      padding:0 5px 5px 0; /*Esta es la profundidad de nuestra sombra, sí haces más grandes estos valores, el efecto de sombra es mayor también */
-      background: url("../../../../assets/img/mifoto.jpg") no-repeat bottom right; /*Aquí es donde ponemos la imagen como fondo colocando su ubicación*/
-      } 
-      
-    #sombra img {
-      display:block;
-      position:relative;
-      top: -3px; /* Desfasamos la imagen hacia arriba */
-      left:-3px; /*Desfasamos la imagen hacia la izquierda */
-      padding:5px;
-      background:#FFFFFF; /*Definimos un color de fondo */
-      border:1px solid;
-      border-color: #CCCCCC #666666 #666666 #CCCCCC /*Creamos un marco para acentuar el efecto */
-      }
+   
 
      
-
       .fija {
-  position: fixed;
-  top: 0;
-  background-color: #b9b5cc;
-  
-  }
-
+        position: fixed;
+       
+        width: 100%;
+        top: 0;
+        background-color: #060314;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 5px 5px -3px rgba(57, 49, 211, 0.404),
+                        0 8px 10px 2px rgba(18, 14, 155, 0.87),
+                        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+    
+    
   .back {
     background-color: #050635;
 }
-
+  /* LO cargue en el styiles css generall */
 .back1 {
   background: #073383;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #292836, #00348e);  /* Chrome 10-25, Safari 5.1-6 */
@@ -74,4 +65,17 @@
   background: #d0dbf0;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #dcdaf9, #a3b3ce);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2f353c, #7a93e6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.cardborder{
+  border-radius: 2em;
+  margin-top: 2em;
+}
+
+.descripcion {
+  text-align: justify;
+  justify-items: space;
+  text-shadow: #00218e;
+  font-size: 130%;
+  
 }

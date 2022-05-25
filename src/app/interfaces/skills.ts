@@ -4,5 +4,6 @@ export interface Skills {
     url_imagen: string;
     valor: number;
     tipo: string;
+    persona: number;
 
 }

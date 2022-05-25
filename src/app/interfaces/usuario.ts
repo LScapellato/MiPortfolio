@@ -3,11 +3,15 @@ id?: number;
 nombre: string;
 apellido: string;
 edad: number;
-grado: string;
-mail: string;
 telefono: string;
-fecha_nacimiento: Date;
+mail: string;
 desripcion: string;
 imagenurl: string;
+fecha_nacimiento: Date;
+grado: string;
+educacion: string;
+skills: string;
+experiencia: string;
+
 
 }

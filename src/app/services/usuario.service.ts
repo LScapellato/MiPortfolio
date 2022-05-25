@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UsuarioService {
-  private API_SERVER = 'http://localhost:8080/personas/';
+  
+  // private API_SERVER = 'http://localhost:8080/personas/'
+  private API_SERVER = 'https://bemiportfolio.herokuapp.com/personas/';
 
   constructor(private http: HttpClient) {}
 

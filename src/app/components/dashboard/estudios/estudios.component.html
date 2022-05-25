@@ -21,13 +21,13 @@
               mat-card-avatar
               class="header-image"
               style="
-                background-image: url(http://www.ort.edu.ar/img/LogoOrtArgWeb2017.jpg);
+                background-image: url({{item.url_imagen}});
               "
             ></div>
             
-            <mat-card-title style="color:dimgrey">{{item.institucion}}</mat-card-title><mat-icon>drag_indicator</mat-icon>
+            <mat-card-title style="color:rgb(35, 32, 32); font-size:1em">{{item.institucion}}</mat-card-title><mat-icon>drag_indicator</mat-icon>
             
-            <mat-card-subtitle style="color: blue">{{item.titulo}} </mat-card-subtitle>
+            <mat-card-subtitle style="color: blue; margin-top:1px">{{item.titulo}} </mat-card-subtitle>
             <mat-card-subtitle style="color: blue"
               >{{item.fecha_fin | date:'yyyy'}}</mat-card-subtitle >
           </mat-card-header>
@@ -35,16 +35,16 @@
             <div>{{item.descripcion}}</div>
             
           </mat-card-content>
-          <div styles="position: relative; top:80%">
-         <mat-card-actions >
+          
+         <mat-card-footer >
               <button  *ngIf="isAdmin" matTooltip="Editar" mat-icon-button style="color: black" (click)="detalleEstudio(item.id)">
                 <mat-icon>create</mat-icon>
               </button>
               <button *ngIf="isAdmin" matTooltip="Borrar" mat-icon-button style="color: black" (click)="borrarEstudio(item.id)">
                 <mat-icon>delete</mat-icon>
               </button>
-            </mat-card-actions>
-          </div>
+         </mat-card-footer>
+         
         </mat-card>
       </div>
     </div>

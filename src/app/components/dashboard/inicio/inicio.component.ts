@@ -30,6 +30,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarUsuario();
+    this.rol();
   }
 
   cargarUsuario() {

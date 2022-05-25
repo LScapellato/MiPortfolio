@@ -6,7 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SkillsService {
-  private API_SERVER = 'http://localhost:8080/skills/';
+  
+  // private API_SERVER = 'http://localhost:8080/skills/'
+  
+  
+  private API_SERVER = 'https://bemiportfolio.herokuapp.com/skills/';
   
   constructor(private http: HttpClient) { }
 
@@ -24,7 +28,7 @@ export class SkillsService {
   }
 
   public updateSkills(id: number, skills: string): Observable<any> {
-    console.log(this.API_SERVER + 'editar/'+ id, skills)
+    
     return this.http.put(this.API_SERVER + 'editar/'+ id, skills);
    
   }

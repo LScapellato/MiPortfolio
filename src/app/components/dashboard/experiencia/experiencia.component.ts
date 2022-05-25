@@ -66,6 +66,10 @@ export class ExperienciaComponent implements OnInit {
 
   }
 
+  irEditar(id:number) {
+    this.router.navigate(['/dashboard/experiencia-editar/'+ id])
+  }
+
   borrarExperiencia(id: number) {
     this._experienciaService.deleteExperiencia(id).subscribe((data) => {
       this._snackBar.open(

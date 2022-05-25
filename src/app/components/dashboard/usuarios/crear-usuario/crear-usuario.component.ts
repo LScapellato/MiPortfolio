@@ -57,7 +57,7 @@ export class CrearUsuarioComponent implements OnInit {
     
     this._usuarioService.getPersonaDetalle(id).subscribe((data)=>{
       this.usuario= data;
-      console.log(data)
+      
       this.form.setValue({
         nombre: this.usuario.nombre,
         apellido: this.usuario.apellido,
@@ -84,7 +84,7 @@ export class CrearUsuarioComponent implements OnInit {
       edad: this.form.value.edad,*/
 
     this._usuarioService.savePerson(this.form.value).subscribe((data) => {
-      this.router.navigate(['/dashboard/usuarios']);
+      
       console.log(data);
       this._snackBar.open('Usuario Creado Correctamente', '', {
         duration: 1500,
@@ -92,6 +92,7 @@ export class CrearUsuarioComponent implements OnInit {
         verticalPosition: 'bottom',
       });
       this.form.reset();
+      this.router.navigate(['/']);
     });
   }
 
@@ -116,8 +117,9 @@ export class CrearUsuarioComponent implements OnInit {
     .subscribe((data)=> {
       this._snackBar.open('Usuario Actualizado' ,'OK',
       {duration: 3000, horizontalPosition:'center', verticalPosition:'bottom'});
-      this.router.navigate(['/dashboard']);
-    });
+     
+    }); 
+    this.router.navigate(['/dashboard']);
   }
 }
 

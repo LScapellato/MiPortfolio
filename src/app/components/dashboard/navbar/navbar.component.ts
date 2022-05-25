@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Menu } from 'src/app/interfaces/menu';
 import { AuthService } from 'src/app/services/auth.service';
 import { MenuService } from 'src/app/services/menu.service';
 import { LoginComponent } from '../../login/login.component';
 
-const AUTHORITIES_KEY = 'AuthAuthorities';
 
 @Component({
   selector: 'app-navbar',
@@ -25,7 +25,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private _menuService: MenuService,
     private auth: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +53,11 @@ export class NavbarComponent implements OnInit {
 
   openLogin() {
     //Pasamos nuestro componente del contenido que queremos pasar al modal
-    this.dialog.open(LoginComponent);
+   const dialogRef = this.dialog.open(LoginComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(['/dashboard/inicio'])
+    })
+
   }
   // ESTO LO OBTENGO DESDE EL AUTH SERVICE
   // rol() {
@@ -84,7 +89,19 @@ export class NavbarComponent implements OnInit {
   // }
 
   logOut() {
-    this.auth.logOut();
+
+    var mensaje = confirm(
+      'Confirma que desea cerrar la Sesión'
+    );
+    if (mensaje) {
+      this.router.navigate(['/inicio']);
+       this.auth.logOut();
+      ;
+    } else {
+      
+    }
+   
+    
   }
   rol() {
     this.rolActual = this.auth.Rol();

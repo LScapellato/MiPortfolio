@@ -31,28 +31,31 @@ export class EditarSkillsComponent implements OnInit {
   }
 
   editarSkills() {
+
+
+  
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
 
-    this._skillsService.updateSkills(id ,this.form.value.all).subscribe((skill) => {
-
+    this._skillsService.updateSkills(id ,this.form.value)
+    .subscribe((data) => {
+      
       this._snackBar.open(
-        'Se Actualizado esta Experiencia',
-        'Experiencia Actualizada',
+        'Se Actualizado esta Habilidad',
+        'Habilidad Actualizada',
         {
           duration: 3000,
           horizontalPosition: 'center',
           verticalPosition: 'bottom',
         }
       );
-       this.form.reset();
+       //this.form.reset();
       this.router.navigate(['/dashboard']);
     });
-
-
-    }
+   
+  }
 
     cargaSkills() {
-      const id = parseInt(this.route.snapshot.paramMap.get('id')!);
+      const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);
   
       this._skillsService.getSkillsDetalle(id).subscribe((data) => {
         this.skills = data;

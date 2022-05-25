@@ -7,7 +7,9 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private API_SERVER = 'http://localhost:8080/auth/login';
+  
+  // private API_SERVER = 'http://localhost:8080/auth/login'
+  private API_SERVER = 'https://bemiportfolio.herokuapp.com/auth/login';
   currentUserSubject: BehaviorSubject<any>; // maneja el estado
   roles!: [];
   isAdmin = false;

@@ -18,10 +18,10 @@
   color:rgb(173, 196, 230)
 }
 
-.fija {
-  position: absolute;
+/* .fija {
+  position: inherit;
   top: 0;
-  z-index: 4;
-  overflow: hidden;
+ 
   
-  }
+  
+  } */
