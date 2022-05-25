@@ -17,7 +17,7 @@ export class CrearExperienciaComponent implements OnInit {
   @Input() experiencia: any;
   imagenes: any[]= [];
   _imagenurl: any;
-  // options: string[] = ['One', 'Two', 'Three'];
+  
 
   constructor(
     public dialog: MatDialog,
@@ -66,27 +66,6 @@ export class CrearExperienciaComponent implements OnInit {
         this.form.reset();
       });
   }
-
-  // editarExperiencia() {
-  //   const id = parseInt(this.route.snapshot.paramMap.get('id')!, 3);
-
-  //   console.log(this.form.value.all);
-  //   this._experienciaService
-  //     .updateExperiencia(id, this.form.value)
-  //     .subscribe((data) => {
-  //       this._snackBar.open(
-  //         'Se Actualizado esta Experiencia',
-  //         'Experiencia Actualizada',
-  //         {
-  //           duration: 3000,
-  //           horizontalPosition: 'center',
-  //           verticalPosition: 'bottom',
-  //         }
-  //       );
-  //       // this.form.reset();
-  //       this.router.navigate(['/dashboard']);
-  //     });
-  //
 
   cargaExp() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!, 10);

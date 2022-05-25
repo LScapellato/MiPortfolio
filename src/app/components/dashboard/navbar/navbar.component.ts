@@ -94,15 +94,17 @@ export class NavbarComponent implements OnInit {
       'Confirma que desea cerrar la Sesión'
     );
     if (mensaje) {
-      this.router.navigate(['/inicio']);
-       this.auth.logOut();
-      ;
-    } else {
-      
-    }
-   
-    
+      this.auth.logOut();
+      //quiero actualizar el navegador para que se borren las credenciales con reload() pierdo la ruta de la app. agrege al authsevices el assign()
+     //esto soluciona el error en la ruta de firebase pero no estoy seguro si es lo más adecuado
+     
+     
+     
+     
+     // http://localhost:4200/ para la prueba local
+    // //window.location.reload();
   }
+}
   rol() {
     this.rolActual = this.auth.Rol();
 
