@@ -63,6 +63,7 @@ export class AuthService {
   }
   public logOut(): void {
     window.sessionStorage.clear();
-    window.location.reload();
+    //esto generaba que no redirija el logout
+    // window.location.reload();
   }
 }
