@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExperienciaComponent } from './components/dashboard/experiencia/experiencia.component';
+
 import { InicioComponent } from './components/dashboard/inicio/inicio.component';
 
 import { LoginComponent } from './components/login/login.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { GuardGuard } from './services/guard.guard';
+
 
 const routes: Routes = [ 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },

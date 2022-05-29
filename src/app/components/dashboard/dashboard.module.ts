@@ -18,7 +18,9 @@ import { SkillsComponent } from './skills/skills.component';
 import { CrearSkillsComponent } from './skills/crear-skills/crear-skills.component';
 import { EditarSkillsComponent } from './skills/editar-skills/editar-skills.component';
 import { CrearEstudioComponent } from './estudios/crear-estudio/crear-estudio.component';
-import { EditarEstudioComponent } from './estudios/editar-estudio/editar-estudio.component'
+import { EditarEstudioComponent } from './estudios/editar-estudio/editar-estudio.component';
+import { ProyectosComponent } from './proyectos/proyectos.component';
+import { CrearProyectosComponent } from './proyectos/crear-proyectos/crear-proyectos.component'
  
 
 @NgModule({
@@ -39,6 +41,8 @@ import { EditarEstudioComponent } from './estudios/editar-estudio/editar-estudio
     EditarSkillsComponent,
     CrearEstudioComponent,
     EditarEstudioComponent,
+    ProyectosComponent,
+    CrearProyectosComponent,
     
     
   ],

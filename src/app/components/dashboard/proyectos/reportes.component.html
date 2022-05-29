@@ -2,31 +2,42 @@
 <div class="container">
   <mat-toolbar class="navcolor" style="margin-top: 2em">
     <span>Proyectos</span>
+    <div class="spacer"></div>
+    <button *ngIf="isAdmin" mat-button style="color:white" (click)="openCrearProyectos()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
   </mat-toolbar>
 
+  <div *ngFor="let proyecto of listproyectos">
   <mat-card style="margin-top:15px">
-    <h3><b>Portfolio Personal </b></h3>  <span> <a style="text-align:right" href='https://miportfolioimg.web.app/'>Este Proyecto</a> 
-   </span> 
+    <h3><b>{{proyecto.titulo}} </b><span class="material-icons"><a href='{{proyecto.url_muestra}}'  target='_blank'>
+      open_in_new
+      </a></span></h3>  
  <!-- <div style="margin-top:10px">
      <iframe src="https://public.tableau.com/views/Muestra_16312422754650/ExportacionesVitivinicolasArgentinaMes?:showVizHome=no&:embed=true"
   width="100%" height="955"></iframe>
   </div> -->
   <span>
-  <a>
-   Proyecto desarrollado en el marco del Programa Argentina Programa. Proyecto SPE Desarrollo en Angular, Base de Datos en Mysql , Backend Java Usando SpringBoot y ApiRest. El proyecto tiene Seguridad JWT con la implementación de usuarios, En la visualización inicial está disponible el material del portfolio, y es editable con permiso de usuario realizando el login como Administrador. Se utiliza Firebase Storage para almacenar las imágenes, Se implementó la Base de Datos MySQL en Clever Cloud, Heroku para alojar el Backend. y Firebase Hosting para el Frontend.
+  <a>{{proyecto.descripcion}}
+   <!-- Proyecto desarrollado en el marco del Programa Argentina Programa. Proyecto SPE Desarrollo en Angular, Base de Datos en Mysql , Backend Java Usando SpringBoot y ApiRest. El proyecto tiene Seguridad JWT con la implementación de usuarios, En la visualización inicial está disponible el material del portfolio, y es editable con permiso de usuario realizando el login como Administrador. Se utiliza Firebase Storage para almacenar las imágenes, Se implementó la Base de Datos MySQL en Clever Cloud, Heroku para alojar el Backend. y Firebase Hosting para el Frontend. -->
   </a>
 
  </span>
- 
+ <div >
+  <button  *ngIf="isAdmin" matTooltip="Editar" mat-icon-button style="color: black" (click)="detalleProyecto(proyecto.id)">
+     <mat-icon>create</mat-icon>
+   </button>
+   <button *ngIf="isAdmin" matTooltip="Borrar" mat-icon-button style="color: black" (click)="borrarProyecto(proyecto.id)">
+     <mat-icon>delete</mat-icon>
+   </button></div>
   </mat-card>
-
-  <mat-card style="margin-top:15px">
-    <h3><b>Muestra de Data Analisis de Exportaciones Vitivinícolas Argentinas Tableu Public </b></h3>  <span> <a style="text-align:right" href='https://public.tableau.com/views/Muestra_16312422754650/ExportacionesVitivinicolasArgentinaMes?:language=es-ES&:display_count=n&:origin=viz_share_link'>Ver Proyecto en Tableau</a> 
-   </span> 
- <!-- <div style="margin-top:10px">
-     <iframe src="https://public.tableau.com/views/Muestra_16312422754650/ExportacionesVitivinicolasArgentinaMes?:showVizHome=no&:embed=true"
-  width="100%" height="955"></iframe>
-  </div> -->
+  </div>
+  <!-- <mat-card style="margin-top:15px">
+  
+    <h3><b>Muestra de Data Analisis de Exportaciones Vitivinícolas Argentinas Tableu Public </b><span class="material-icons"><a href='https://public.tableau.com/views/Muestra_16312422754650/ExportacionesVitivinicolasArgentinaMes?:language=es-ES&:display_count=n&:origin=viz_share_link' target='_blank'>
+      open_in_new
+      </a></span></h3>   
+  
   <span>
   <a>
     El proceso de ETL comienza con la extraccíon y procesamiento de distintas fuentes de datos e integrando a una base principal en la cual se ha trabajado mas de 10 años en la investigación y clasificación de marcas y variedades exportadas desde Argentina al Mundo. Me sumé al proyecto en el año 2009 y desde ese momento comencé con el análisis y procesamiento de datos de Exportaciones Vitivinícolas de Chile investigando e incluyendo mas de 6000 marcas se hizo cleansing de datos de años anteriores desde el 2017 y actualmente continúo agregando procesos de clasificación limpieza e integración de datos de estas fuentes de información. Los usuarios finales son Export manager e interesados del Mercado del Vino de todo el Mundo. (la Muestra es solo una representación de datos estadídsticos en cumplimiento de los derechos comerciales de laCaucasia Wine Thinking)
@@ -34,7 +45,7 @@
 
  </span>
  
-  </mat-card>
+  </mat-card> -->
 
 
 

@@ -10,56 +10,32 @@
     <span class="textabajo">#YoProgramo</span>
   </div>
   <span class="spacer"></span>
-  <!-- <div>
-    <span class="spacer"></span>
-  <button
-  *ngIf="isInvitado" (click)="openLogin()"
-    mat-icon-button
-    class="logout"
-    aria-label="icon-button with menu icon"
-    
-  >
-    <mat-icon>login</mat-icon><a> Iniciar Sesion </a>
-  </button>
-  <span class="spacer"></span>
-  <button
-  *ngIf="!isInvitado" (click)="logOut()"
-    mat-icon-button
-    class="logout"
-    aria-label="icon-button with menu icon"
-    
-  >
-  <mat-icon >logout</mat-icon><a>Cerrar Sesion</a> 
-  </button>
- </div> -->
-
-
 
   <button mat-button *ngFor="let item of menu" [routerLink]="item.redirect">
     {{ item.nombre }}
   </button>
   
-  <!-- <span class="spacer"></span> -->
+ 
+  <a style="margin-right:0.5em" title="Github"
+  href="https://github.com/LScapellato"
+  target="_blank">
   <button  mat-icon-button class="material-icons-outlined">
-    <mat-icon>mail</mat-icon>
+    <mat-icon><img src="../../../assets/img/github2.png" width="170%" /></mat-icon>
   </button>
-
+</a>
 
   
 
-  <script
-    src="https://platform.linkedin.com/badges/js/profile.js"
-    async
-    defer
-    type="text/javascript"
-  ></script>
+
   <a
     title="Linkedin"
     href="https://www.linkedin.com/in/leo-scapellato-16a84b35"
+    target="_blank"
   >
  
     <button
-      mat-icon-button
+      
+    mat-icon-button
       class="material-icons"
       aria-label="icon-button with menu icon"
     >
@@ -67,20 +43,13 @@
     </button>
   </a>
   
-  <button
-    routerLink="/login"
-    mat-icon-button
-    class="logout"
-    aria-label="icon-button with menu icon"
-  >
- 
-    <mat-icon>share</mat-icon>
-  </button>
+
  
   <button
     mat-icon-button
     [matMenuTriggerFor]="meno"
-    aria-label="Example icon-button with a menu"
+    aria-label="Menu"
+    title="Login"
   >
     <mat-icon>more_vert</mat-icon>
   </button>

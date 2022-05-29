@@ -56,8 +56,9 @@ export class EstudiosComponent {
           verticalPosition: 'top',
         }
       );
+       this.cargarEstudios();
     });
-    this.cargarEstudios();
+    
   }
 
   //TODO Investigar esto para evitar repetir en todos los componentes

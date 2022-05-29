@@ -49,7 +49,7 @@ export class EditarEstudioComponent implements OnInit {
         }
       );
        this.form.reset();
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['']);
     });
 
 
@@ -77,7 +77,7 @@ export class EditarEstudioComponent implements OnInit {
 
     redir() {
       this.form.reset();
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['']);
     }
 }
 

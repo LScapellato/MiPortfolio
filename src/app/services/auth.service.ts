@@ -43,7 +43,7 @@ export class AuthService {
 
   public getAuthorities() {
     window.sessionStorage.getItem('CurrentUser');
-    console.log(window.sessionStorage.getItem('currentUser'));
+    // console.log(window.sessionStorage.getItem('currentUser'));
   }
 
   public Rol() {

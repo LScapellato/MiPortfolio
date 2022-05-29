@@ -97,7 +97,7 @@ export class CrearUsuarioComponent implements OnInit {
   }
 
   volver() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard/inicio']);
   }
 
   getErrorMessage() {
@@ -119,7 +119,7 @@ export class CrearUsuarioComponent implements OnInit {
       {duration: 3000, horizontalPosition:'center', verticalPosition:'bottom'});
      
     }); 
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard/inicio']);
   }
 }
 

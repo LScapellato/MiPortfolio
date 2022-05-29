@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { ProyectosService } from 'src/app/services/proyectos.service';
+import { CrearProyectosComponent } from './crear-proyectos/crear-proyectos.component';
 
 @Component({
   selector: 'app-reportes',
@@ -6,19 +12,72 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reportes.component.css']
 })
 export class ReportesComponent implements OnInit {
+  listproyectos: any;
+  private _proyecto: any;
+  isAdmin = false;
+  rolActual= '';
+  isInvitado = true;
+  @Output() idActual?: number;
 
-  constructor() { }
+  constructor(
+    private _proyectosService: ProyectosService,
+    public _snackBar: MatSnackBar,
+    private router: Router,
+    public dialog: MatDialog,
+    public auth: AuthService,
 
-  ngOnInit(): void {
+  ) { }
+
+  ngOnInit(): void {this.cargarProyectos();this.rol();
   }
 
-  // <script type='text/javascript'>       
-  //              var divElement = document.getElementById('viz1652738529946');       
-  //                           var vizElement = divElement.getElementsByTagName('object')[0];  
-  //                                             vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';      
-  //                                                           var scriptElement = document.createElement('script');
-  //                                                                               scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';  
-  //                                                                                                 vizElement.parentNode.insertBefore(scriptElement, vizElement);       
-  //                                                                                                          </script>
+  cargarProyectos() {
+    this._proyectosService.getProyectos().subscribe((proyectos) => {
+      this.listproyectos= proyectos;
+    })
+  }
 
+  openCrearProyectos() {
+    //Pasamos nuestro componente del contenido que queremos pasar al modal
+   const dialogRef= this.dialog.open(CrearProyectosComponent);
+
+   dialogRef.afterClosed().subscribe(result => {
+     this.cargarProyectos();
+   })
+  }
+
+   ///TODO REPITO EL CODIGO VER COMO RESOLVER
+   rol() {
+    this.rolActual = this.auth.Rol();
+
+    if (this.rolActual !== 'Administrador' && this.rolActual !== 'Usuario') {
+      this.isAdmin = false;
+      this.isInvitado = true;
+    } else {
+      if (this.rolActual == 'Administrador') this.isAdmin = true;
+      this.isInvitado = false;
+    }
+  }
+  borrarProyecto (id: number) {
+    this._proyectosService.deleteProyectos(id).subscribe((data)=>{
+      this._snackBar.open(
+        'Elemento eliminado',
+        '',
+        {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        }
+      );
+       this.cargarProyectos();
+    });
+    
+  }
+
+  detalleProyecto(id: number) {
+    this.idActual = id;
+    
+    this.router.navigate(['/dashboard/proyectos/' + id]);
+  }
 }
+

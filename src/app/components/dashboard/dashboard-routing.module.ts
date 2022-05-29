@@ -10,6 +10,7 @@ import { ExperienciaComponent } from './experiencia/experiencia.component';
 import { DialogoComponent } from './inicio/dialogo/dialogo.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ReportesComponent } from './proyectos/reportes.component';
 import { EditarSkillsComponent } from './skills/editar-skills/editar-skills.component';
 import { CrearUsuarioComponent } from './usuarios/crear-usuario/crear-usuario.component';
@@ -20,10 +21,10 @@ const routes: Routes = [
     {path:'', component: DashboardComponent, children: [
     
     {path:'inicio',component: InicioComponent},
-    
+    {path: 'proyectos/:id',component: ProyectosComponent},
     {path:'usuarios',component:UsuariosComponent },
     {path:'reportes',component:ReportesComponent },
-    {path:'crear-usuario',component:CrearUsuarioComponent, canActivate: [GuardGuard] },
+    {path:'crear-usuario/:id',component:CrearUsuarioComponent, canActivate: [GuardGuard] },
     {path: 'experiencia',component:ExperienciaComponent},
     {path:'crear-experiencia',component:CrearExperienciaComponent,canActivate: [GuardGuard]},
     {path:'experiencia-editar/:id',component:ExperienciaEditarComponent, canActivate: [GuardGuard]},

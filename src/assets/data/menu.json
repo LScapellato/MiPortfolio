@@ -1,7 +1,7 @@
 [
     {
         "nombre": "Dashboard",
-        "redirect":"/dashboard/inicio"
+        "redirect":"/inicio"
     },
     {
         "nombre": "Usuarios",
@@ -10,11 +10,8 @@
     {
         "nombre": "Proyectos",
         "redirect":"/dashboard/reportes"
-    },
-    {
-        "nombre": "Actividades",
-        "redirect":"/dashboard/reportes"
     }
+    
 
 
 ]

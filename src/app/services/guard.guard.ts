@@ -36,7 +36,7 @@ export class GuardGuard implements CanActivate {
       currentUser &&
       JSON.stringify(currentUser).includes('ROLE_ADMIN') === true
     ) {
-      console.log('verdadero');
+      
       return true;
     } else {
       //Cuando no esta registrado el Administrador en las paginas que administra el Guards veo mensaje de confirmación para login o salir al dash
