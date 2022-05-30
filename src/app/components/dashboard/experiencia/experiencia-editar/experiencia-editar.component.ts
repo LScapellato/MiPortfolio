@@ -53,7 +53,7 @@ export class ExperienciaEditarComponent implements OnInit {
           }
         );
         // this.form.reset();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/dashboard/inicio']);
       });
   }
 

@@ -4,3 +4,11 @@ a:link, a:visited,  a:hover, a:active
     color: #000000;
     text-decoration: none;
 }
+
+.descripcion {
+    text-align: justify;
+    justify-items: space;
+   text-shadow: lightblue;
+    font-size: 130%;
+    
+  }

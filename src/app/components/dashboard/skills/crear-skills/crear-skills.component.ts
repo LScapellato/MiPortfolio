@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -22,9 +22,9 @@ export class CrearSkillsComponent implements OnInit {
     private router: Router
   ) {
     this.form = this.fb.group({
-      nombre_habilidad: [''],
+      nombre_habilidad: ['', Validators.required],
       valor: [''],
-      tipo: [''],
+      tipo: ['', Validators.required],
     });
   }
 
@@ -49,6 +49,7 @@ export class CrearSkillsComponent implements OnInit {
         );
         this.form.reset();
         this.dialog.closeAll();
+        this.router.navigate(['/dashboard/inicio'])
 
       },
 

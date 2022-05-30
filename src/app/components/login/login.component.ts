@@ -11,9 +11,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import {
   MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogConfig,
-  MatDialogRef,
+ 
 } from '@angular/material/dialog';
 
 @Component({
@@ -94,8 +92,9 @@ export class LoginComponent implements OnInit {
     
     this.auth.IniciarSesion(this.form.value).subscribe(
       (data) => {
-        console.log('DATA:' + JSON.stringify(data));
+        
         this.isLogged = true;
+        window.location.reload();
           this.router.navigate(['/dashboard/inicio']);
         
 

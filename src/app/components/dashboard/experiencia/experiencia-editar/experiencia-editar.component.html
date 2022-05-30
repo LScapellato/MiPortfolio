@@ -1,7 +1,17 @@
+<div class="back1">
 <div class="container">
-  <h2 style="margin-top:2em">Editar Experiencia</h2>
+  <mat-toolbar class="navcolor" style="margin-top: 2.5em">
+
+
+    <span>Editar Experiencia Laboral</span>
+    <div class="spacer"></div>
+    <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+      Volver
+    </button>
+  </mat-toolbar>
+  <!-- <h2 style="margin-top:2em">Editar Experiencia</h2> -->
   <form role="form" [formGroup]="form" (ngSubmit)="editarExperiencia()">
-    <div class="row g-2" style="margin-top: 1em">
+    <div class="row g-2" style="margin-top: 0.5em">
       <div class="col - md-5">
         <label for="nombre_empresa">Empresa</label>
         <input formControlName="nombre_empresa" type="text" class="form-control" id="nombre_empresa"
@@ -13,14 +23,14 @@
       </div>
     </div>
 
-    <div class="row g-1" style="margin-top: 1em">
+    <div class="row g-1" style="margin-top: 0.5em">
       <div class="col">
         <label for="descripcion">Descripcion</label>
         <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
           formControlName="descripcion" />
       </div>
     </div>
-    <div class="form-group input-group" style="margin-top: 2em">
+    <div class="form-group input-group" style="margin-top: 0.5em">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Tipo de Empleo</label>
       </div>
@@ -33,7 +43,7 @@
       </select>
     </div>
 
-    <div class="row g-2" style="margin-top: 1em">
+    <div class="row g-2" style="margin-top: 0.5em">
       <div class="col">
         <label for="fecha_inicio">Fecha Inicio</label>
         <input type="Date" class="form-control" id="fecha_inicio" formControlName="fecha_inicio" />
@@ -44,7 +54,7 @@
       </div>
     </div>
 
-    <div class="form-check" style="margin-top: 1em">
+    <div class="form-check" style="margin-top: 0.5em">
       <input class="form-check-input" type="checkbox" id="actual" formControlName="actual" />
       <label class="form-check-label" for="gridCheck">
         Es trabajo actual ?
@@ -69,7 +79,7 @@
         </button>
       </div>
       <div class="col text-center">
-        <button routerLink="/dashboard" class="btn btn-secondary">
+        <button routerLink='/dashboard/inicio' class="btn btn-secondary">
           Cerrar
         </button>
       </div>
@@ -79,4 +89,4 @@
 
 
   </form>
-</div>
+</div></div>

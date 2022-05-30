@@ -1,14 +1,24 @@
 
 
 <div class="container">
-    <h2 mat-dialog-title class="text-center">Crear Proyecto</h2>
+ 
+ 
+    <mat-toolbar class="navcolor" style="margin-bottom: 0.5em">
+    
+    
+      <span>Cargar Proyecto</span>
+      <div class="spacer"></div>
+      <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+        Volver
+      </button>
+    </mat-toolbar>
     
     
     
     <div mat-dialog-content class="body" >
       
         <form role="form" [formGroup]="form" (ngSubmit)="agregarProyecto()">
-          
+           <div class="row">
             <div class= 'col'>
               <label for="titulo">Nombre Proyecto</label> 
               <input
@@ -33,7 +43,7 @@
               <label for="exampleFormControlTextarea1">Descripción</label>
               <textarea class="form-control" id="" rows="4" formControlName="descripcion"></textarea>
             </div>
-          
+          </div> 
           
           <div class="row">
             <div class="col text-center spacer">

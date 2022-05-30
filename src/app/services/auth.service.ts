@@ -67,8 +67,8 @@ export class AuthService {
    //borro los datos de la sesion
     window.sessionStorage.clear();
      //quiero actualizar el navegador para que se borren las credenciales con reload() pierdo la ruta de la app. y encontre este metodo para iniciar de nuevo
-    window.location.assign('https://miportfolioimg.web.app');
-    
+    // window.location.assign('https://miportfolioimg.web.app');
+    window.location.reload();
     
     //esto generaba que no redirija el logout
     // window.location.reload();     http://localhost:4200

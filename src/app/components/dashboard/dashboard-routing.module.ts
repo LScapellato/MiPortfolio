@@ -21,14 +21,14 @@ const routes: Routes = [
     {path:'', component: DashboardComponent, children: [
     
     {path:'inicio',component: InicioComponent},
-    {path: 'proyectos/:id',component: ProyectosComponent},
+    {path:'proyectos/:id',component: ProyectosComponent, canActivate: [GuardGuard]},
     {path:'usuarios',component:UsuariosComponent },
     {path:'reportes',component:ReportesComponent },
     {path:'crear-usuario/:id',component:CrearUsuarioComponent, canActivate: [GuardGuard] },
-    {path: 'experiencia',component:ExperienciaComponent},
+    {path: 'experiencia',component:ExperienciaComponent,canActivate: [GuardGuard]},
     {path:'crear-experiencia',component:CrearExperienciaComponent,canActivate: [GuardGuard]},
     {path:'experiencia-editar/:id',component:ExperienciaEditarComponent, canActivate: [GuardGuard]},
-    {path: 'estudios',component:EstudiosComponent},
+    // {path: 'estudios',component:EstudiosComponent},
     {path: 'editar-skills/:id' ,component: EditarSkillsComponent ,canActivate: [GuardGuard]},
     {path: 'editar-estudio/:id', component: EditarEstudioComponent, canActivate: [GuardGuard]},
     {path: 'dialogo/', component: DialogoComponent,canActivate: [GuardGuard]},

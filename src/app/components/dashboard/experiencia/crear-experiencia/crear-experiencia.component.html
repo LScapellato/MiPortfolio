@@ -1,6 +1,14 @@
 <div class="body">
-<h2 mat-dialog-title>Cargar Experiencia</h2>
+<!-- <h2 mat-dialog-title>Cargar Experiencia</h2> -->
+<mat-toolbar class="navcolor" style="margin-bottom: 0.5em">
 
+
+  <span>Cargar Experiencia Laboral</span>
+  <div class="spacer"></div>
+  <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+    Volver
+  </button>
+</mat-toolbar>
 <div mat-dialog-content>
   <form role="form" [formGroup]="form" (ngSubmit)="agregarExperiencia()">
     <div class="row -g2">

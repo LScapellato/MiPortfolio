@@ -1,48 +1,60 @@
-<div class="container" style="margin-top: 5em">
-<h2 class="text-center">Editar Estudio</h2>
-<div class="body" >
+<!-- <div class="container" style="margin-top: 5em">
+<h2 class="text-center">Editar Estudio</h2> -->
+<div class="back1">
+  <div class="container">
+    <mat-toolbar class="navcolor" style="margin-top: 2.5em">
 
-  <form role="form" [formGroup]="form" (ngSubmit)="editarEstudio()">
-    
-      <div class="col">
-        <label for="Institucion" class="col-sm-2 control-label">Institucion</label>
-        <input formControlName="institucion" type="text" class="form-control" id="institucion"
-          placeholder="Institucion" />
-      </div>
-      <div class="col">
-        <label for="titulo">Titulo</label>
-        <input type="text" class="form-control" id="titulo" placeholder="Titulo" formControlName="titulo" />
-      </div>
-    
 
-    <div class="form-group margen">
-      <label for="descripcion">Descripcion</label>
-      <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
-        formControlName="descripcion" />
-    </div>
-    
-    <div class="row g-2">
-      <div class="col">
-        <label for="fecha_inicio">Fecha Inicio</label>
-        <input type="Date" class="form-control" id="fecha_inicio" formControlName="fecha_inicio" />
-      </div>
-      <div class="col">
-        <label for="fecha_fin">Fecha Fin</label>
-        <input type="Date" class="form-control" id="fecha_fin" formControlName="fecha_fin" />
-      </div>
-    </div>
-   
-    
-
-    <div class="col text-center spacer buttonmargin" >
-      <button mat button type="submit" class="btn btn-primary">Editar</button>
-      <button style="margin-left: 30px" mat-button (click)="redir()" class="btn btn-secondary">
-        Cerrar
+      <span>Editar Capacitación</span>
+      <div class="spacer"></div>
+      <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+        Volver
       </button>
+    </mat-toolbar>
+
+
+
+    <div class="body">
+
+      <form role="form" [formGroup]="form" (ngSubmit)="editarEstudio()">
+
+        <div class="col">
+          <label for="Institucion" class="col-sm-2 control-label">Institucion</label>
+          <input formControlName="institucion" type="text" class="form-control" id="institucion"
+            placeholder="Institucion" />
+        </div>
+        <div class="col">
+          <label for="titulo">Titulo</label>
+          <input type="text" class="form-control" id="titulo" placeholder="Titulo" formControlName="titulo" />
+        </div>
+
+
+        <div class="form-group margen">
+          <label for="descripcion">Descripcion</label>
+          <input type="text" class="form-control" id="descripcion" placeholder="Descripcion"
+            formControlName="descripcion" />
+        </div>
+
+        <div class="row g-2">
+          <div class="col">
+            <label for="fecha_inicio">Fecha Inicio</label>
+            <input type="Date" class="form-control" id="fecha_inicio" formControlName="fecha_inicio" />
+          </div>
+          <div class="col">
+            <label for="fecha_fin">Fecha Fin</label>
+            <input type="Date" class="form-control" id="fecha_fin" formControlName="fecha_fin" />
+          </div>
+        </div>
+
+
+
+        <div class="col text-center spacer buttonmargin">
+          <button mat button type="submit" class="btn btn-primary">Editar</button>
+          <button style="margin-left: 30px" mat-button (click)="redir()" class="btn btn-secondary">
+            Cerrar
+          </button>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 </div>
-</div>
-
-
-

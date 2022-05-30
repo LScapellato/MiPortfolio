@@ -1,5 +1,16 @@
 
-<h1 class="ancho" mat-dialog-title>Crear Usuario</h1>
+ <mat-toolbar class="navcolor">
+
+
+  <span>Crear Usuario</span>
+  <div class="spacer"></div>
+  <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+    Volver
+  </button>
+</mat-toolbar>
+
+
+<!-- <h1 class="navbar" mat-dialog-title>Crear Usuario</h1> -->
 <form [formGroup]="form" (ngSubmit)="agregarUsuario()">
   <mat-dialog-content [formGroup]="form" (ngSubmit)="agregarUsuario()">
     <mat-form-field class="ancho">
@@ -50,9 +61,11 @@
 
 
   <div mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>
+    
     <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
       Registrar 
     </button>
+    <button mat-raised-button mat-dialog-close color="warn">Cerrar Sin Guardar</button>
+
   </div>
 </form>

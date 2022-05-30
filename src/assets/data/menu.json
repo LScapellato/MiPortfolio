@@ -1,7 +1,7 @@
 [
     {
         "nombre": "Dashboard",
-        "redirect":"/inicio"
+        "redirect":"/dashboard/inicio"
     },
     {
         "nombre": "Usuarios",

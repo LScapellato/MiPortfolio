@@ -19,6 +19,10 @@
             persona.grado
           }}</mat-card-subtitle>
 
+          <mat-card-subtitle style="color: rgb(13, 13, 16)">Contacto: {{
+            persona.mail
+          }}</mat-card-subtitle>
+
           <mat-card-actions>
             <button
               *ngIf="isAdmin"
@@ -39,24 +43,7 @@
           <div class="descripcion" style="margin-top: 2em">
             {{ persona.descripcion }}
           </div>
-          <!-- <p>
-          <b>Analista de datos</b> tres años de experiencia en
-          <b>Data Cleansing y Herramientas BI</b>. Actualmente iniciando mis
-          primeros pasos como <b>Full Stack Developer,</b> con ganas de trabajar
-          en proyectos importantes y grupos de personas obstinadas con los logros
-          de objetivos
-        </p>
-        <p>
-          <b>Experiencia en Gestión y control de empresas</b> de diversos rubros y
-          especializaciones.
-        </p>
-        <p>
-          Hace años en forma autodidacta y capacitaciones aprendí
-          <b>Electrónica, Electricidad, Energía fotovoltaica y térmica solar</b>
-          mi pasión por la tecnología me llevó a tener la posibilidad de aprender
-          y actualmente doy Cursos de Capacitación de Estos temas en un instituto
-          de Formación de oficios.
-        </p> -->
+      
         </mat-card-content>
       </div>
     </mat-card>

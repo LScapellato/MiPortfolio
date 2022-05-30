@@ -1,91 +1,79 @@
-<div class="container; ini">
-  <mat-toolbar>
-    <span>Editar Usuario</span>
-    <div class="spacer"></div>
-    <button mat-raised-button color="primary" routerLink="/dashboard/inicio">
-      Volver
-    </button>
-  </mat-toolbar>
-  <mat-card style="margin-top: 8px">
-    <form [formGroup]="form" (ngSubmit)="editarUsuario()">
-      <mat-grid-list cols="3" rows="3" rowHeight="4:1">
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput placeholder="NOMBRE" formControlName="nombre" autocomplete="off" />
-          </mat-form-field>
-        </mat-grid-tile>
+<div class="back1">
+  <div class="container">
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput placeholder="APELLIDO" formControlName="apellido" autocomplete="off" />
-          </mat-form-field>
-        </mat-grid-tile>
+    <mat-toolbar class="navcolor" style="margin-top: 2em">
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="EDAD" formControlName="edad" />
-          </mat-form-field>
-        </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="Titulo" formControlName="grado" />
-          </mat-form-field>
-        </mat-grid-tile>
+      <span>Editar Usuario</span>
+      <div class="spacer"></div>
+      <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+        Volver
+      </button>
+    </mat-toolbar>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="urlimagen" formControlName="imagenurl" />
-          </mat-form-field>
-        </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="eMail" formControlName="mail" formControlName="mail" />
-            <mat-error *ngIf=>{{ getErrorMessage() }}</mat-error>
-          </mat-form-field>
-        </mat-grid-tile>
+    <mat-card style="margin-top: 8px">
+      <form [formGroup]="form" (ngSubmit)="editarUsuario()">
+        <mat-grid-list cols="3" rows="3" rowHeight="4:1">
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput placeholder="NOMBRE" formControlName="nombre" autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input type="date" matInput autocomplete="off" placeholder="Fecha Nacimiento"
-              formControlName="fecha_nacimiento" />
-          </mat-form-field>
-        </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput placeholder="APELLIDO" formControlName="apellido" autocomplete="off" />
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="2" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="Descripción" formControlName="descripcion" />
-          </mat-form-field>
-        </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput autocomplete="off" placeholder="EDAD" formControlName="edad" />
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input matInput autocomplete="off" placeholder="Titulo" formControlName="telefono" />
-          </mat-form-field>
-        </mat-grid-tile>
-        
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput autocomplete="off" placeholder="Titulo" formControlName="grado" />
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
-          <mat-form-field class="ancho">
-            <input
-              readonly
-              type="text"
-              matInput
-              autocomplete="off"
-              placeholder="Tu edad es"
-              formControlName="edad"
-              [value]="calculoEdad()"
-            />
-          </mat-form-field>
-        </mat-grid-tile> -->
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput autocomplete="off" placeholder="urlimagen" formControlName="imagenurl" />
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-grid-tile [colspan]="3" [rowspan]="1">
-          <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
-            Registrar
-          </button>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </form>
-  </mat-card>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input matInput autocomplete="off" placeholder="eMail" formControlName="mail" formControlName="mail" />
+              <mat-error *ngIf=>{{ getErrorMessage() }}</mat-error>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="ancho">
+              <input type="date" matInput autocomplete="off" placeholder="Fecha Nacimiento"
+                formControlName="fecha_nacimiento" />
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2" [rowspan]="1">
+            <mat-form-field class="ancho">
+
+              <textarea type="text" matInput autocomplete="off" placeholder="Descripcion"
+                formControlName="descripcion"></textarea>
+            </mat-form-field>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="3" [rowspan]="1">
+            <button type="submit" [disabled]="form.invalid" mat-raised-button color="primary">
+              Editar
+            </button>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-card>
+  </div>
 </div>

@@ -1,8 +1,18 @@
+<div>
+ 
+  <mat-toolbar class="navcolor" style="margin-bottom: 0.5em">
+  
+  
+    <span>Cargar Habilidad</span>
+    <div class="spacer"></div>
+    <button mat-raised-button color="secondary" routerLink="/dashboard/inicio">
+      Volver
+    </button>
+  </mat-toolbar>
 
 
 
-
-<h3 mat-dialog-title class="text-center">Cargar Habilidad</h3>
+<!-- <h3 mat-dialog-title class="text-center">Cargar Habilidad</h3> -->
 
 
 
@@ -26,8 +36,10 @@
             type="number"
             class="form-control"
             id="valor"
-            placeholder="valor"
+            placeholder="De 1 a 100"
             formControlName="valor"
+            min="1"
+            max="10"
           />
         </div>
       </div>
@@ -51,6 +63,8 @@
         </select>
       </div>
       <div class="row">
+
+        <!-- TODO FALTA CONFIGURAR VALIDATORS -->
         <div class="col text-center spacer">
       <button mat-button type="submit" class="btn btn-primary">Cargar</button>
       <button style="margin-left:30px"mat-button mat-dialog-close class=" btn btn-secondary">Cerrar</button>
@@ -60,6 +74,7 @@
     </form>
     
   
+</div>
 </div>
 
 
