@@ -50,6 +50,6 @@ export class CrearProyectosComponent implements OnInit {
 
   redir() {
     this.form.reset();
-    this.router.navigate(['/inicio']);
+    this.router.navigate(['dashboard/inicio']);
   }
 }
